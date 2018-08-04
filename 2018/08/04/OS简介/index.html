@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="操作系统," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="1. 程序是怎么跑起来的?程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&amp;gt; 解码 -&amp;gt; 运行. 伪代码表示如下 1234while True:    ins = getNextInstruction()    decoded_ins = decode_ins(ins)    exec_ins(decoded_ins) 程序要运行是需要硬件资源的, 但是我们在编写代码">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://lihongjie0209.github.io/2018/08/02/hello-world/index.html">
+<meta property="og:title" content="OS简介">
+<meta property="og:url" content="https://lihongjie0209.github.io/2018/08/04/OS简介/index.html">
 <meta property="og:site_name" content="李宏杰的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="1. 程序是怎么跑起来的?程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&amp;gt; 解码 -&amp;gt; 运行. 伪代码表示如下 1234while True:    ins = getNextInstruction()    decoded_ins = decode_ins(ins)    exec_ins(decoded_ins) 程序要运行是需要硬件资源的, 但是我们在编写代码">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-04T12:27:19.713Z">
+<meta property="og:updated_time" content="2018-08-04T16:44:01.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="OS简介">
+<meta name="twitter:description" content="1. 程序是怎么跑起来的?程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&amp;gt; 解码 -&amp;gt; 运行. 伪代码表示如下 1234while True:    ins = getNextInstruction()    decoded_ins = decode_ins(ins)    exec_ins(decoded_ins) 程序要运行是需要硬件资源的, 但是我们在编写代码">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://lihongjie0209.github.io/2018/08/02/hello-world/"/>
+  <link rel="canonical" href="https://lihongjie0209.github.io/2018/08/04/OS简介/"/>
 
 
 
 
 
-  <title>Hello World | 李宏杰的博客</title>
+  <title>OS简介 | 李宏杰的博客</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/04/OS简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李宏杰">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">OS简介</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-02T18:31:12+08:00">
-                2018-08-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-04T23:32:17+08:00">
+                2018-08-04
               </time>
             
 
@@ -299,15 +300,19 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="1-程序是怎么跑起来的"><a href="#1-程序是怎么跑起来的" class="headerlink" title="1. 程序是怎么跑起来的?"></a>1. 程序是怎么跑起来的?</h1><p>程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&gt; 解码 -&gt; 运行. 伪代码表示如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    ins = getNextInstruction()</span><br><span class="line">    decoded_ins = decode_ins(ins)</span><br><span class="line">    exec_ins(decoded_ins)</span><br></pre></td></tr></table></figure>
+<p>程序要运行是需要硬件资源的, 但是我们在编写代码时不会在每一个程序中都实现一套自己的文件系统, 我们也没有在创建文件的时候区分是固态硬盘还是机械硬盘, 而这一切的便利都是操作系统提供给我们的.</p>
+<p>操作系统封装了硬件资源, 然后给我们提供了易用的接口. </p>
+<p>其次, 操作系统把硬件资源合理的分配给每个程序, 这时, 操作系统就作为了硬件资源你的管理者.</p>
+<h1 id="2-什么是虚拟化-为什么我们需要虚拟化"><a href="#2-什么是虚拟化-为什么我们需要虚拟化" class="headerlink" title="2. 什么是虚拟化, 为什么我们需要虚拟化?"></a>2. 什么是虚拟化, 为什么我们需要虚拟化?</h1><p>首先虚拟化是假的, 不真实的. 我们需要虚拟化因为真实的硬件是无法满足我们需求.</p>
+<p>那么, 我们的需求是什么呢? 多进程并发执行.</p>
+<p>还是最开始的程序执行代码, 当我们只有一个程序在一个CPU中在运行时, 这个代码没问题, 但是如果我们两个或者三个程序都需要同时运行呢?</p>
+<p>这个需求是无法实现的, 因为一个CPU在具体的某一个时刻只可能在执行一个程序的一条指令. </p>
+<p>我们的需求现在就转变为如何把一个物理CPU变为多个CPU. 这个神奇的过程就是虚拟化. </p>
+<p>总结来说: 虚拟化就是通过一定的技术手段, 把硬件改造为满足我们需求的形式.</p>
+<p>把单个物理CPU改造为多个CPU的过程被称为虚拟化CPU.<br>把单个物理内存空间改造为多个内存空间的过程被称为虚拟化内存.</p>
+<h1 id="3-持久化储存"><a href="#3-持久化储存" class="headerlink" title="3. 持久化储存"></a>3. 持久化储存</h1><p>持久化储存主要是IO设备中的硬盘, 用于储存程序运行的结果. 对于程序员来说, 操作系统给我们提供的是文件系统作为持久化储存的抽象. 文件系统一般情况下全局共享的, 不同的程序之间可以通过文件系统来共享数据. </p>
 
       
     </div>
@@ -323,6 +328,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/blog/tags/操作系统/" rel="tag"># 操作系统</a>
+          
+        </div>
+      
 
       
       
@@ -332,15 +343,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blog/2018/08/02/helloworld/" rel="next" title="helloworld">
+                <i class="fa fa-chevron-left"></i> helloworld
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/08/02/helloworld/" rel="prev" title="helloworld">
-                helloworld <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,7 +474,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-程序是怎么跑起来的"><span class="nav-number">1.</span> <span class="nav-text">1. 程序是怎么跑起来的?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-什么是虚拟化-为什么我们需要虚拟化"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是虚拟化, 为什么我们需要虚拟化?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-持久化储存"><span class="nav-number">3.</span> <span class="nav-text">3. 持久化储存</span></a></li></ol></div>
             
 
           </div>
