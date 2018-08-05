@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="操作系统," />
 
 
 
@@ -79,13 +79,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="李宏杰的博客">
-<meta property="og:url" content="https://lihongjie0209.github.io/index.html">
+<meta name="description" content="问: 什么是进程? 答: 运行中的程序. 问: 什么是程序? 答: 储存在磁盘中的二进制文件. 问: 进程由什么组成? 答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态. 问: 进程还由什么组成? 答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存. 问: 进程还由什么组成? 答: IO设备, 常见的有硬盘. 问: 程序是如何从硬盘加载到内存中的?  问: 进程有哪些状">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OS之进程">
+<meta property="og:url" content="https://lihongjie0209.github.io/2018/08/05/OS之进程/index.html">
 <meta property="og:site_name" content="李宏杰的博客">
+<meta property="og:description" content="问: 什么是进程? 答: 运行中的程序. 问: 什么是程序? 答: 储存在磁盘中的二进制文件. 问: 进程由什么组成? 答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态. 问: 进程还由什么组成? 答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存. 问: 进程还由什么组成? 答: IO设备, 常见的有硬盘. 问: 程序是如何从硬盘加载到内存中的?  问: 进程有哪些状">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg">
+<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/62406262.jpg">
+<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/90178355.jpg">
+<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/99088326.jpg">
+<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/73807220.jpg">
+<meta property="og:updated_time" content="2018-08-05T08:43:51.223Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李宏杰的博客">
+<meta name="twitter:title" content="OS之进程">
+<meta name="twitter:description" content="问: 什么是进程? 答: 运行中的程序. 问: 什么是程序? 答: 储存在磁盘中的二进制文件. 问: 进程由什么组成? 答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态. 问: 进程还由什么组成? 答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存. 问: 进程还由什么组成? 答: IO设备, 常见的有硬盘. 问: 程序是如何从硬盘加载到内存中的?  问: 进程有哪些状">
+<meta name="twitter:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg">
 
 
 
@@ -115,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://lihongjie0209.github.io/"/>
+  <link rel="canonical" href="https://lihongjie0209.github.io/2018/08/05/OS之进程/"/>
 
 
 
 
 
-  <title>李宏杰的博客</title>
+  <title>OS之进程 | 李宏杰的博客</title>
   
 
 
@@ -140,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +224,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/05/OS之进程/" itemprop="url">OS之进程</a></h1>
+          <h1 class="post-title" itemprop="name headline">OS之进程</h1>
         
 
         <div class="post-meta">
@@ -298,9 +306,7 @@
       
 
       
-        
-          
-            <p>问: 什么是进程?</p>
+        <p>问: 什么是进程?</p>
 <p>答: 运行中的程序.</p>
 <p>问: 什么是程序?</p>
 <p>答: 储存在磁盘中的二进制文件.</p>
@@ -354,8 +360,6 @@
 <p>问: 多级反馈队列调度算法有什么缺点?</p>
 <p>答: 当用户主动放弃CPU时, 任务的优先级保持不变. 用户可以编写恶意程序主动放弃CPU确保他的程序一直在最高优先级. 而且只要最高优先级有任务, 那么低优先级队列就无法得到时间片, 所以需要操作系统隔一段时间之后把所有的任务都提升到最高优先级队列.</p>
 
-          
-        
       
     </div>
     
@@ -370,268 +374,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/04/OS简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/04/OS简介/" itemprop="url">OS简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-04T23:32:17+08:00">
-                2018-08-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/blog/tags/操作系统/" rel="tag"># 操作系统</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-程序是怎么跑起来的"><a href="#1-程序是怎么跑起来的" class="headerlink" title="1. 程序是怎么跑起来的?"></a>1. 程序是怎么跑起来的?</h1><p>程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&gt; 解码 -&gt; 运行. 伪代码表示如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    ins = getNextInstruction()</span><br><span class="line">    decoded_ins = decode_ins(ins)</span><br><span class="line">    exec_ins(decoded_ins)</span><br></pre></td></tr></table></figure>
-<p>程序要运行是需要硬件资源的, 但是我们在编写代码时不会在每一个程序中都实现一套自己的文件系统, 我们也没有在创建文件的时候区分是固态硬盘还是机械硬盘, 而这一切的便利都是操作系统提供给我们的.</p>
-<p>操作系统封装了硬件资源, 然后给我们提供了易用的接口. </p>
-<p>其次, 操作系统把硬件资源合理的分配给每个程序, 这时, 操作系统就作为了硬件资源你的管理者.</p>
-<h1 id="2-什么是虚拟化-为什么我们需要虚拟化"><a href="#2-什么是虚拟化-为什么我们需要虚拟化" class="headerlink" title="2. 什么是虚拟化, 为什么我们需要虚拟化?"></a>2. 什么是虚拟化, 为什么我们需要虚拟化?</h1><p>首先虚拟化是假的, 不真实的. 我们需要虚拟化因为真实的硬件是无法满足我们需求.</p>
-<p>那么, 我们的需求是什么呢? 多进程并发执行.</p>
-<p>还是最开始的程序执行代码, 当我们只有一个程序在一个CPU中在运行时, 这个代码没问题, 但是如果我们两个或者三个程序都需要同时运行呢?</p>
-<p>这个需求是无法实现的, 因为一个CPU在具体的某一个时刻只可能在执行一个程序的一条指令. </p>
-<p>我们的需求现在就转变为如何把一个物理CPU变为多个CPU. 这个神奇的过程就是虚拟化. </p>
-<p>总结来说: 虚拟化就是通过一定的技术手段, 把硬件改造为满足我们需求的形式.</p>
-<p>把单个物理CPU改造为多个CPU的过程被称为虚拟化CPU.<br>把单个物理内存空间改造为多个内存空间的过程被称为虚拟化内存.</p>
-<h1 id="3-持久化储存"><a href="#3-持久化储存" class="headerlink" title="3. 持久化储存"></a>3. 持久化储存</h1><p>持久化储存主要是IO设备中的硬盘, 用于储存程序运行的结果. 对于程序员来说, 操作系统给我们提供的是文件系统作为持久化储存的抽象. 文件系统一般情况下全局共享的, 不同的程序之间可以通过文件系统来共享数据. </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/02/helloworld/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/02/helloworld/" itemprop="url">helloworld</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-02T18:37:06+08:00">
-                2018-08-02
-              </time>
+              <a href="/blog/2018/08/04/OS简介/" rel="next" title="OS简介">
+                <i class="fa fa-chevron-left"></i> OS简介
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="this-is-titile"><a href="#this-is-titile" class="headerlink" title="this is titile"></a>this is titile</h1><p>hello world</p>
-<h1 id="this-is-code-block"><a href="#this-is-code-block" class="headerlink" title="this is code block"></a>this is code block</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"helloworld"</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="this-is-picture"><a href="#this-is-picture" class="headerlink" title="this is picture"></a>this is picture</h1><p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-2/25180786.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -641,138 +413,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/02/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-02T18:31:12+08:00">
-                2018-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -780,6 +425,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -985,6 +634,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
