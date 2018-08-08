@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="李宏杰的博客">
 <meta property="og:description" content="问: 内存面临的问题是什么?  答: currency.   问: 可以使用时间片的方式来解决这个问题吗?  答: 不可以, 对于CPU来说, 时间片切换只需要切换寄存器就好了, 容量小, 速度快. 但是内存相对来说容量大, 速度慢, 切换是无法接受的.   问: 那么我们如何解决这个问题?  答: 可以使用基于空间的虚拟化技术, 把内存分块.   问: 如何实现虚拟化内存技术?  答: 类似于所">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-08T09:20:35.453Z">
+<meta property="og:updated_time" content="2018-08-08T12:28:58.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS之内存">
 <meta name="twitter:description" content="问: 内存面临的问题是什么?  答: currency.   问: 可以使用时间片的方式来解决这个问题吗?  答: 不可以, 对于CPU来说, 时间片切换只需要切换寄存器就好了, 容量小, 速度快. 但是内存相对来说容量大, 速度慢, 切换是无法接受的.   问: 那么我们如何解决这个问题?  答: 可以使用基于空间的虚拟化技术, 把内存分块.   问: 如何实现虚拟化内存技术?  答: 类似于所">
@@ -477,7 +477,7 @@
 <hr>
 <p>问: 程序使用的内存超过物理内存怎么办 ? </p>
 <blockquote>
-<p>答: 把一部分内存转存到硬盘中去(swap)</p>
+<p>答: 把一部分内存转存到硬盘中去(swap), 哪怕程序很小, 但是在程序运行时, 热点page只有10%, 我们只需要在内存中储存这10%就可以了.(怎么确认10%)</p>
 </blockquote>
 <hr>
 <p>问: 如何在内存和硬盘中切换page ?</p>
@@ -531,6 +531,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/08/08/OS之并发/" rel="prev" title="OS之并发">
+                OS之并发 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -598,7 +602,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
