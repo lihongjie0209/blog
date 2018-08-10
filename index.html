@@ -229,6 +229,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/09/数据库之事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/09/数据库之事务/" itemprop="url">数据库之事务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T20:17:16+08:00">
+                2018-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是事务 ?</p>
+<blockquote>
+<p>答: 具有一定特性的函数. </p>
+<p>首先: 事务是函数, 也就是一个或者多个语句(这里指SQL语句)</p>
+<p>其次: 这个函数具有ACID的特性.</p>
+</blockquote>
+<hr>
+<p>问: 什么是原子性 ?</p>
+<blockquote>
+<p>答: 函数的所有语句全部执行或者全部不执行.</p>
+</blockquote>
+<hr>
+<p>问: 什么是隔离性 ?</p>
+<blockquote>
+<p>答: 多线程执行函数如何实现线程安全.</p>
+</blockquote>
+<hr>
+<p>问: 什么是持久性 ?</p>
+<blockquote>
+<p>答: 函数执行之后其副作用必须保存在系统中.</p>
+</blockquote>
+<hr>
+<p>问: 什么是一致性 ?</p>
+<blockquote>
+<p>答: 函数的后置条件必须满足.</p>
+</blockquote>
+<hr>
+<p>问: </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/08/OS之并发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +447,123 @@
       
         
           
-            
+            <p>问: 什么需要并发?</p>
+<blockquote>
+<p> 答: 速度快</p>
+</blockquote>
+<hr>
+<p>问: 并发需要面对的问题是什么?</p>
+<blockquote>
+<p>答: 确保程序的正确性.</p>
+</blockquote>
+<hr>
+<p>问: 什么影响了程序的正确性 ?</p>
+<blockquote>
+<p>答: 线程之间共享可写资源, 如内存 文件系统</p>
+</blockquote>
+<hr>
+<p>问: 多进程之间会有这个正确性的问题吗 ?</p>
+<blockquote>
+<p>答: 视情况, 判断的关键是二者之间是否有共享可写资源.</p>
+</blockquote>
+<hr>
+<p>问: 如何解决正确性的问题 ?</p>
+<blockquote>
+<p>答: 不共享: 每个线程都有自己的拷贝资源, 或者是在写共享资源时不可被中断; 不可写: 只读资源可以共享访问.</p>
+</blockquote>
+<hr>
+<p>问: 如何实现不可被中断?</p>
+<blockquote>
+<p>答: 锁, 哪怕被中断, 其他线程也因为没有锁而取消执行</p>
+</blockquote>
+<hr>
+<p>问: 如何协调多个线程之间的调度 ?</p>
+<blockquote>
+<p> 答: 这本身是一个线程沟通的问题, 线程之间必须有沟通才能协商调度. 锁可以认为是最基础的一个沟通方式, 告诉其他线程共享资源是否在使用, 但是这种方式太基础了,无法满足复杂的需求.</p>
+</blockquote>
+<hr>
+<p>问: 那么条件变量也是共享可写资源?</p>
+<blockquote>
+<p>答: 是的, 所以只可以在一个线程持有锁的时候才能使用条件变量.</p>
+</blockquote>
+<hr>
+<p>问: 如何实现一个锁?</p>
+<blockquote>
+<p> 答:  锁的目的是当操作系统进行线程切换时程序员可以进行一定的调度(程序员承担一部分系统调度的责任)</p>
+<table>
+<thead>
+<tr>
+<th>实现方式</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>禁止操作系统切换进程</td>
+<td>简单</td>
+<td>只在单核系统中有用, 权限问题</td>
+</tr>
+<tr>
+<td>轮询</td>
+<td>简单, 多核可用</td>
+<td>性能问题</td>
+</tr>
+<tr>
+<td>休眠等待队列(计数器为1)</td>
+<td>不需要轮询, 性能好, 可以控制下一个锁的获得线程</td>
+<td></td>
+</tr>
+<tr>
+<td>休眠等待队列 + 计数器</td>
+<td>更加灵活</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<hr>
+<p>问: 如何实现一个条件变量 ?</p>
+<blockquote>
+<p>答: 和实现锁一样, 只是把锁的状态改为条件变量的条件.</p>
+</blockquote>
+<hr>
+<p>问: 为什么需要在多线程的代码中使用while 而不是 if ?</p>
+<hr>
+<blockquote>
+<p> 答:  while 比 if 多循环一次, 可以避免在条件判断之后进行线程切换导致条件不满足, 但是程序无法继续判断.</p>
+</blockquote>
+<hr>
+<p>问: 多线程下常见的BUG有哪些?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>BUG</th>
+<th>描述</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>共享可写资源访问不上锁</td>
+<td></td>
+<td>互斥访问共享资源</td>
+</tr>
+<tr>
+<td>线程之间调度靠运气</td>
+<td></td>
+<td>条件变量进行调度</td>
+</tr>
+<tr>
+<td>死锁</td>
+<td>1. 互斥访问<br>2. 持有一个锁, 等待一个锁<br>3. 被持有的锁无法释放<br>4. 环形等待</td>
+<td>1. 使用全局唯一的获取锁的顺序避免环形等待.<br>2. 使用tryLock释放锁</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
           
         
       
@@ -1246,7 +1509,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1259,7 +1522,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
