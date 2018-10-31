@@ -229,6 +229,284 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/09/数据库之事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/09/数据库之事务/" itemprop="url">数据库之事务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-09T20:17:16+08:00">
+                2018-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是事务 ?</p>
+<blockquote>
+<p>答: 具有一定特性的函数. </p>
+<p>首先: 事务是函数, 也就是一个或者多个语句(这里指SQL语句)</p>
+<p>其次: 这个函数具有ACID的特性.</p>
+</blockquote>
+<hr>
+<p>问: 什么是原子性 ?</p>
+<blockquote>
+<p>答: 函数的所有语句全部执行或者全部不执行.</p>
+</blockquote>
+<hr>
+<p>问: 什么是隔离性 ?</p>
+<blockquote>
+<p>答: 多线程执行函数如何实现线程安全.</p>
+</blockquote>
+<hr>
+<p>问: 什么是持久性 ?</p>
+<blockquote>
+<p>答: 函数执行之后其副作用必须保存在系统中.</p>
+</blockquote>
+<hr>
+<p>问: 什么是一致性 ?</p>
+<blockquote>
+<p>答: 函数的后置条件必须满足.</p>
+</blockquote>
+<hr>
+<p>问: 什么会影响数据库的一致性 ?</p>
+<blockquote>
+<p>答: 对共享数据的写操作没有进行同步, 也就是冲突</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>导致的结果</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ-WRITE</td>
+<td>无法重复读</td>
+<td></td>
+</tr>
+<tr>
+<td>WRITE-READ</td>
+<td>脏读(读到未提交的数据)</td>
+<td></td>
+</tr>
+<tr>
+<td>WRITE-WRITE</td>
+<td>覆盖写</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 什么是可串行化 ?</p>
+<blockquote>
+<p>答: </p>
+<ol>
+<li><p>串行:  一次只有一个事务能够执行, 完全没有调度</p>
+</li>
+<li><p>非串行化: 并发执行, 有调度</p>
+<ol>
+<li>有N种调度结果</li>
+<li>一部分调度结果会导致数据库处于非一致状态</li>
+<li>一部分调度结果会导致数据库处于一致状态 </li>
+<li>这种调度结果的检测就是可串行化检测</li>
+</ol>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Concurrency_control" target="_blank" rel="noopener">concurrency control</a> of <a href="https://en.wikipedia.org/wiki/Database" target="_blank" rel="noopener">databases</a>,<a href="https://en.wikipedia.org/wiki/Serializability#cite_note-Bernstein87-1" target="_blank" rel="noopener">[1]</a><a href="https://en.wikipedia.org/wiki/Serializability#cite_note-Weikum01-2" target="_blank" rel="noopener">[2]</a> <a href="https://en.wikipedia.org/wiki/Transaction_processing" target="_blank" rel="noopener">transaction processing</a> (transaction management), and various <a href="https://en.wikipedia.org/wiki/Database_transaction" target="_blank" rel="noopener">transactional</a> applications (e.g., <a href="https://en.wikipedia.org/wiki/Transactional_memory" target="_blank" rel="noopener">transactional memory</a><a href="https://en.wikipedia.org/wiki/Serializability#cite_note-Herlihy1993-3" target="_blank" rel="noopener">[3]</a> and <a href="https://en.wikipedia.org/wiki/Software_transactional_memory" target="_blank" rel="noopener">software transactional memory</a>), both centralized and <a href="https://en.wikipedia.org/wiki/Distributed_computing" target="_blank" rel="noopener">distributed</a>, a transaction <a href="https://en.wikipedia.org/wiki/Schedule_(computer_science" target="_blank" rel="noopener">schedule</a>) is <strong>serializable</strong> if its outcome (e.g., the resulting database state) is equal to the outcome of its transactions executed serially, i.e. without overlapping in time.  </p>
+</blockquote>
+<p>总结来说: 可序列化是一个评价方式, 评价数据库调度, 评价标准是数据库状态的一致性. 只要数据库的事务在调度之后处于和调度之前一致的状态, 那么我们就称这个调度为可序列化的调度.</p>
+<p>在操作系统中, 系统的调度主要是由操作系统进行的, 程序员通过一些同步手段来控制调度.</p>
+<p>但是在数据库中, 事务的调度是由数据库自己计算出来的, 减少了程序员的负担.</p>
+</li>
+</ol>
+</blockquote>
+<p>问: 数据库如何保证并发事务的一致性 ?</p>
+<blockquote>
+<p>答: 类似于操作系统, 使用锁.</p>
+<p>不同事务可以持有的锁</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>读锁</th>
+<th>写锁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读锁</td>
+<td>✔</td>
+<td>✖</td>
+</tr>
+<tr>
+<td>写锁</td>
+<td>✖</td>
+<td>✖</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 什么是两阶段锁 ?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>获取锁阶段</th>
+<th>获取事务中的所有锁</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>释放锁阶段</td>
+<td>开始释放事务中的锁</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-15/10010562.jpg" alt=""><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-15/34431779.jpg" alt=""><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1534343017028.png" alt="1534343017028"></p>
+<p>锁越安全, 越接近串行.</p>
+</blockquote>
+<p>问: 如何避免死锁?</p>
+<blockquote>
+<p>答</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>实现</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>死锁检测</td>
+<td>有一个单独的线程检测LockManager, 发现死锁之后abort其中一个事务–&gt; tryLock</td>
+<td>不影响之前的实现逻辑</td>
+<td>1. 轮询<br>2. 死锁处理逻辑</td>
+</tr>
+<tr>
+<td>死锁避免</td>
+<td>锁只能被一个事务持有, 不存在等待, 也就无法死锁. 当获取一个被持有的锁时, 要么终止持有锁的事务, 要么终止获取锁的事务. tryLock(0)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 并发控制</p>
+<blockquote>
+<ol>
+<li>two-phase-locking(代价)</li>
+<li>multi-version-concurrency-control(发现冲突)</li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/08/OS之并发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1116,7 +1394,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1129,7 +1407,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

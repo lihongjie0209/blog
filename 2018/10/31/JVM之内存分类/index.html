@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="操作系统," />
+  <meta name="keywords" content="jvm," />
 
 
 
@@ -79,24 +79,18 @@
 
 
 
-<meta name="description" content="问: 什么是进程? 答: 运行中的程序. 问: 什么是程序? 答: 储存在磁盘中的二进制文件. 问: 进程由什么组成? 答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态. 问: 进程还由什么组成? 答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存. 问: 进程还由什么组成? 答: IO设备, 常见的有硬盘. 问: 程序是如何从硬盘加载到内存中的?  问: 进程有哪些状">
-<meta name="keywords" content="操作系统">
+<meta name="description" content="栈是一个线程私有的内存区域, 每一个方法调用就会产生一个stack frame,  用于储存方法调用的各种信息  局部变量表 操作数 方法出口  如果一个线程中的stack 超过大小, 那么就会抛出java.lang.StackOverflowError 可以通过 -Xss 参数调整stack的大小. 下面的代码默认的大小只能调用6000次 123456789101112131415@Testpu">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS之进程">
-<meta property="og:url" content="https://lihongjie0209.github.io/2018/08/05/OS之进程/index.html">
+<meta property="og:title" content="JVM之内存分类">
+<meta property="og:url" content="https://lihongjie0209.github.io/2018/10/31/JVM之内存分类/index.html">
 <meta property="og:site_name" content="李宏杰的博客">
-<meta property="og:description" content="问: 什么是进程? 答: 运行中的程序. 问: 什么是程序? 答: 储存在磁盘中的二进制文件. 问: 进程由什么组成? 答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态. 问: 进程还由什么组成? 答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存. 问: 进程还由什么组成? 答: IO设备, 常见的有硬盘. 问: 程序是如何从硬盘加载到内存中的?  问: 进程有哪些状">
+<meta property="og:description" content="栈是一个线程私有的内存区域, 每一个方法调用就会产生一个stack frame,  用于储存方法调用的各种信息  局部变量表 操作数 方法出口  如果一个线程中的stack 超过大小, 那么就会抛出java.lang.StackOverflowError 可以通过 -Xss 参数调整stack的大小. 下面的代码默认的大小只能调用6000次 123456789101112131415@Testpu">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg">
-<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/62406262.jpg">
-<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/90178355.jpg">
-<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/99088326.jpg">
-<meta property="og:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/73807220.jpg">
-<meta property="og:updated_time" content="2018-08-05T08:43:51.223Z">
+<meta property="og:updated_time" content="2018-10-31T11:47:32.055Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OS之进程">
-<meta name="twitter:description" content="问: 什么是进程? 答: 运行中的程序. 问: 什么是程序? 答: 储存在磁盘中的二进制文件. 问: 进程由什么组成? 答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态. 问: 进程还由什么组成? 答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存. 问: 进程还由什么组成? 答: IO设备, 常见的有硬盘. 问: 程序是如何从硬盘加载到内存中的?  问: 进程有哪些状">
-<meta name="twitter:image" content="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg">
+<meta name="twitter:title" content="JVM之内存分类">
+<meta name="twitter:description" content="栈是一个线程私有的内存区域, 每一个方法调用就会产生一个stack frame,  用于储存方法调用的各种信息  局部变量表 操作数 方法出口  如果一个线程中的stack 超过大小, 那么就会抛出java.lang.StackOverflowError 可以通过 -Xss 参数调整stack的大小. 下面的代码默认的大小只能调用6000次 123456789101112131415@Testpu">
 
 
 
@@ -126,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://lihongjie0209.github.io/2018/08/05/OS之进程/"/>
+  <link rel="canonical" href="https://lihongjie0209.github.io/2018/10/31/JVM之内存分类/"/>
 
 
 
 
 
-  <title>OS之进程 | 李宏杰的博客</title>
+  <title>JVM之内存分类 | 李宏杰的博客</title>
   
 
 
@@ -239,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/05/OS之进程/">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/10/31/JVM之内存分类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李宏杰">
@@ -256,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OS之进程</h1>
+          <h1 class="post-title" itemprop="name headline">JVM之内存分类</h1>
         
 
         <div class="post-meta">
@@ -268,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T10:33:48+08:00">
-                2018-08-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T10:14:06+08:00">
+                2018-10-31
               </time>
             
 
@@ -306,59 +300,25 @@
       
 
       
-        <p>问: 什么是进程?</p>
-<p>答: 运行中的程序.</p>
-<p>问: 什么是程序?</p>
-<p>答: 储存在磁盘中的二进制文件.</p>
-<p>问: 进程由什么组成?</p>
-<p>答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态.</p>
-<p>问: 进程还由什么组成?</p>
-<p>答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存.</p>
-<p>问: 进程还由什么组成?</p>
-<p>答: IO设备, 常见的有硬盘.</p>
-<p>问: 程序是如何从硬盘加载到内存中的?</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg" alt=""></p>
-<p>问: 进程有哪些状态?</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/62406262.jpg" alt=""></p>
-<p>问: 操作系统如何控制进程?</p>
-<p>答: 通过代理, 对系统资源的操作必须通过操作系统(kernel mode)的系统调用.</p>
-<p>问: 系统调用是如何实现的?</p>
-<p>答: 通过软中断.</p>
-<p>问: 什么是中断?</p>
-<p>答: 操作系统事件.</p>
-<p>问: 操作系统如何重新获得控制权?</p>
-<p>答: 乐观: 等待进程放弃执行  悲观: 定时强制切换到操作系统控制</p>
-<p>问: 进程是如何切换的? </p>
-<p>答: 进程的组成是有两部分: 静态的代码和数据 + 动态的运行状态(内存 + 寄存器), 只要能保存并恢复运行状态, 那么进程就可以切换.</p>
-<p>问: 进程的调度算法有哪些?</p>
-<p>答: 最简单的调度算法是FIFO, 使用队列进行调度.</p>
-<p>问: FIFO调度算法有什么缺点, 造成这个缺点的原因是什么?</p>
-<p>答: 如果队列中有一个任务运行时间过长, 那么会导致这个任务的之后的所有任务得不到运行(饥饿).</p>
-<p>造成这个问题的主要原因是: 长任务的优先级过高.</p>
-<p>问: 如何解决短任务的饥饿问题?</p>
-<p>答: 使用优先队列, 短任务优先.</p>
-<p>问: 短任务优先有什么缺点?</p>
-<p>答: 所有的任务必须提前规划好才可以(预测能力), 但这个是不现实的.</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/90178355.jpg" alt=""></p>
-<p>问: 上述两个基于队列的算法不合适的本质原因是什么?</p>
+        <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>是一个线程私有的内存区域, 每一个方法调用就会产生一个<code>stack frame</code>,  用于储存方法调用的各种信息</p>
 <ol>
-<li>队列的基本元素是以任务为单位的, 一个任务一旦开始执行就无法再次调度.</li>
-<li>调度器是静态的, 只能预先把任务规划好.</li>
+<li>局部变量表</li>
+<li>操作数</li>
+<li>方法出口</li>
 </ol>
-<p>问: 还有什么调度算法?</p>
-<p>答: RR, 循环队列, 队列中的每一个任务都运行一定的时间片, 然后切换. 这个算法的优点是:</p>
+<p>如果一个线程中的<code>stack</code> 超过大小, 那么就会抛出<code>java.lang.StackOverflowError</code></p>
+<p>可以通过 <code>-Xss</code> 参数调整<code>stack</code>的大小.</p>
+<p>下面的代码默认的大小只能调用6000次</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testStackOverflow</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> stackCounter = <span class="number">0</span>;</span><br><span class="line">	empty(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">empty</span><span class="params">(<span class="keyword">int</span> counter)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"current stack counter is "</span> + String.valueOf(counter));</span><br><span class="line">	empty(counter + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p>堆是JVM中存储对象的内存, 所有线程共享, 是垃圾回收主要进行的区域. 在栈中创建的对象都会存储在堆中, 栈中只存储引用.</p>
+<p>当堆中的内存空间耗尽时, 会抛出<code>java.lang.OutOfMemoryError</code></p>
+<p>下面这段代码会导致OOM, 把堆大小调整的小一点可以快速的看到效果 <code>-Xmx10M -Xms10M</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOOM</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">	LinkedList&lt;Object&gt; objects = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line"></span><br><span class="line">		objects.add(<span class="keyword">new</span> Object());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><p>在操作系统中, 这个区域被称为 <code>code</code> 也就是存储我们源代码的区域, 所有线程共享. 这个区域如果太小, 可能会导致以下问题:</p>
 <ol>
-<li>动态, 新的任务入队马上就可以得到时间片.</li>
-<li>把时间片作为可调度的资源, 而不是按照任务分配</li>
+<li>系统启动时抛出OOM, 因为系统启动时会加载很多类, 所以如果系统的类太多, 在启动时直接OOM</li>
+<li>在系统运行时, 如果生成的动态代理类太多, 也会导致OOM</li>
 </ol>
-<p>问: RR有什么缺点?</p>
-<p>答: 对于单个任务来说, 完成的时间变长了. 因为时间片要轮转.</p>
-<p>问: 还有什么调度算法?</p>
-<p>答: 多级反馈队列调度算法, 这个算法有多个队列, 每个队列有不同的优先级, 当任务开始进入调度器时, 优先级最高, 当任务在时间片内还没有执行完毕, 那么就移动到下一个优先级队列(后台任务); 如果任务在当前时间片内主动放弃CPU, 那么保持在当前队列(和用户交互的任务).</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/99088326.jpg" alt=""></p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/73807220.jpg" alt=""></p>
-<p>问: 多级反馈队列调度算法有什么缺点?</p>
-<p>答: 当用户主动放弃CPU时, 任务的优先级保持不变. 用户可以编写恶意程序主动放弃CPU确保他的程序一直在最高优先级. 而且只要最高优先级有任务, 那么低优先级队列就无法得到时间片, 所以需要操作系统隔一段时间之后把所有的任务都提升到最高优先级队列.</p>
 
       
     </div>
@@ -376,7 +336,7 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/操作系统/" rel="tag"># 操作系统</a>
+            <a href="/blog/tags/jvm/" rel="tag"># jvm</a>
           
         </div>
       
@@ -389,8 +349,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/08/04/OS简介/" rel="next" title="OS简介">
-                <i class="fa fa-chevron-left"></i> OS简介
+              <a href="/blog/2018/08/21/AVL树/" rel="next" title="AVL树">
+                <i class="fa fa-chevron-left"></i> AVL树
               </a>
             
           </div>
@@ -398,10 +358,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/08/06/OS之内存/" rel="prev" title="OS之内存">
-                OS之内存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,8 +409,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -505,6 +470,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#栈"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆"><span class="nav-number">2.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法区"><span class="nav-number">3.</span> <span class="nav-text">方法区</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
