@@ -229,6 +229,1406 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/21/AVL树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/21/AVL树/" itemprop="url">AVL树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-21T20:37:22+08:00">
+                2018-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是平衡二叉树 ?</p>
+<blockquote>
+<p>答: 对于任意一个节点, 左子树的右子树的高度差不能超过1</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/19/并查集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/19/并查集/" itemprop="url">并查集</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T15:33:41+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是并查集 ?</p>
+<blockquote>
+<p> 答 一组集合, 集合中的任意一个元素都只存在于一个集合中. 目的是提供一种高效的数据结构用于不相交集合的合并和查询.</p>
+</blockquote>
+<p>问: 怎么实现并查集 ?</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>实现</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>快速查找算法</td>
+<td>使用数组表示集合, 每一个元素引用它所在的集合, 查找直接返回</td>
+<td>查找快</td>
+<td>合并需要修改引用</td>
+</tr>
+<tr>
+<td>快速合并算法</td>
+<td>使用树表示集合, 合并时把当前树的根节点的父节点指向调整一下, 查找时一直向上查询父节点.</td>
+<td>查找快(树高有关系) &gt;&gt; 优化的话压缩树高</td>
+<td>合并快</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 怎么压缩树高?</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>按树高大小合并, 小树合并到大树, 确保树高不增加</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/19/字典树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/19/字典树/" itemprop="url">字典树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T15:06:16+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是字典树(前缀树)?</p>
+<blockquote>
+<p>答: 把树的节点替换为hash表, 类似于多级hash表</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-19/61906233.jpg" alt=""></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/19/优先队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/19/优先队列/" itemprop="url">优先队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-19T14:36:15+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是优先队列 ?</p>
+<blockquote>
+<p>答: 一种泛化的队列, 普通队列的优先级都一样.</p>
+</blockquote>
+<p>问: 如何实现优先队列 ?</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>实现</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每次出队查找最大元素</td>
+<td>入队快</td>
+<td>出队太慢</td>
+</tr>
+<tr>
+<td>每次入队都维持队列的有序性</td>
+<td>出队快</td>
+<td>入队慢</td>
+</tr>
+<tr>
+<td>堆</td>
+<td>出队快</td>
+<td>入队快</td>
+</tr>
+</tbody>
+</table>
+<p>前两种方法的问题在于对于队列来说, 我们只需要维护队首元素是优先级最高的就可以, 没必要对整个队列排序</p>
+</blockquote>
+<p>问: 什么是堆?</p>
+<blockquote>
+<p>答: 堆是完全二叉树, 其中任意子节点都要小于父节点</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-19/14699471.jpg" alt=""></p>
+</blockquote>
+<p>问: 添加和删除元素如何保证堆的性质 ?</p>
+<blockquote>
+<p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1534661345420.png" alt="1534661345420"></p>
+<p>每次添加元素都添加到数组的最后一位, 判断是否比它的父亲节点大, 如果比父亲节点大, 那么就交换, 接着判断.</p>
+<p>每次删除元素, 首先用最后一个替代根节点, 保证完全二叉树的性质</p>
+<p>然后开始下沉, 取两个子节点的最大值, 交换位置直到该节点满足了堆的性质</p>
+<p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1534661705536.png" alt="1534661705536"></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/16/算法-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/16/算法-一/" itemprop="url">算法(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-16T13:41:27+08:00">
+                2018-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是算法 ?</p>
+<blockquote>
+<p>答: 把输入数据转化为输出数据的一个过程</p>
+</blockquote>
+<p>问: 什么是选择排序 ?</p>
+<blockquote>
+<p>答: 在待排序的数组中找到最小值,然后添加到一个排序好的数组中. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">def</span> <span class="title">SelectionSort</span><span class="params">(lst)</span>:</span></span><br><span class="line">&gt;     <span class="keyword">for</span> i <span class="keyword">in</span> range(len(lst)): // i 是已排序好的数组下一个空槽的下标</span><br><span class="line">&gt;         minIndex = i</span><br><span class="line">&gt;         <span class="keyword">for</span> j <span class="keyword">in</span> range(i, len(lst)): // 选出最小值</span><br><span class="line">&gt;             <span class="keyword">if</span> lst[minIndex] &gt; lst[j]:</span><br><span class="line">&gt;                 minIndex = j</span><br><span class="line">&gt;         tmp = lst[minIndex]   // 把最小值放到空槽中</span><br><span class="line">&gt;         lst[minIndex] = lst[i]</span><br><span class="line">&gt;         lst[i] = tmp</span><br><span class="line">&gt;     <span class="keyword">return</span> lst</span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<p>问: 什么是递归 ?</p>
+<blockquote>
+<p>答: 递归是一个循环依赖, 如果没有结束循环的条件, 那么就会无限的运行下去.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; // 使用递归计算阶乘</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="function"><span class="keyword">def</span> <span class="title">fact</span><span class="params">(i)</span>:</span></span><br><span class="line">&gt;     </span><br><span class="line">&gt;     <span class="keyword">if</span> i == <span class="number">1</span>:</span><br><span class="line">&gt;         <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&gt;     <span class="keyword">else</span>:</span><br><span class="line">&gt;         <span class="keyword">return</span> i * fact(i - <span class="number">1</span>)</span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>问: 快速排序的实现</p>
+<blockquote>
+<p>答:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(lst, start, end)</span>:</span></span><br><span class="line">&gt;         p = lst[start]</span><br><span class="line">&gt;         wall = start  // wall <span class="keyword">is</span> <span class="keyword">not</span> exist at start</span><br><span class="line">&gt;         <span class="keyword">for</span> current <span class="keyword">in</span> range(start + <span class="number">1</span>, end + <span class="number">1</span>):</span><br><span class="line">&gt;             <span class="keyword">if</span> lst[current] &lt; p:</span><br><span class="line">&gt;                 tmp = lst[wall + <span class="number">1</span>]</span><br><span class="line">&gt;                 lst[wall + <span class="number">1</span>] = lst[current]</span><br><span class="line">&gt;                 lst[current] = tmp</span><br><span class="line">&gt;                 wall = wall + <span class="number">1</span></span><br><span class="line">&gt;         tmp = lst[start]</span><br><span class="line">&gt;         lst[start] = lst[wall]</span><br><span class="line">&gt;         lst[wall] = tmp</span><br><span class="line">&gt;         <span class="keyword">return</span> wall</span><br><span class="line">&gt; </span><br><span class="line">&gt; </span><br><span class="line">&gt; </span><br><span class="line">&gt; </span><br><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">_QuickSort</span><span class="params">(lst, start, end)</span>:</span></span><br><span class="line">&gt; </span><br><span class="line">&gt;         <span class="keyword">if</span> (start &gt;= end):</span><br><span class="line">&gt;             <span class="keyword">return</span></span><br><span class="line">&gt;         <span class="keyword">else</span>:</span><br><span class="line">&gt;             p = partition(lst, start, end)</span><br><span class="line">&gt;             _QuickSort(lst, start, p - <span class="number">1</span>)</span><br><span class="line">&gt;             _QuickSort(lst, p + <span class="number">1</span>, end)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>问: 什么是动态规划 ?</p>
+<blockquote>
+<p>答: 就是递归, 但是动态规划会把大问题的解变为多个小问题的解, 同时缓存小问题的计算结果, 避免重复计算.</p>
+<p>至于如何把大问题分成小问题那是需要专门做算法的人来处理, 一般程序猿不需要关系.</p>
+</blockquote>
+<p>问: 什么是贪婪算法?</p>
+<blockquote>
+<p>答: 解决问题的每步都选择局部最优解, 最终得到的结果是全局最优解</p>
+</blockquote>
+<p>问: 什么是NP完全问题?</p>
+<blockquote>
+<p>答; 需要求出所有的解才能解决的问题, 排列问题, 运行速度在问题规模达到一定程度之后非常慢</p>
+</blockquote>
+<p>问: 什么是散列表 ?</p>
+<blockquote>
+<p>答: 一个泛化的线性结构, 一个数组, 它的下标不再是数字, 可以是任意值.</p>
+</blockquote>
+<p>问: 如何解决散列表的冲突问题?</p>
+<blockquote>
+<p>答: 使用链表储存映射到同样键的数据</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/13/OS之持久化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/13/OS之持久化/" itemprop="url">OS之持久化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-13T10:01:38+08:00">
+                2018-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: IO设备是如何与操作系统进行通信的?</p>
+<blockquote>
+<p> 答: 通过总线</p>
+</blockquote>
+<p>问: 什么是总线?</p>
+<blockquote>
+<p>答: In <a href="https://en.wikipedia.org/wiki/Computer_architecture" target="_blank" rel="noopener">computer architecture</a>, a <strong>bus</strong><a href="https://en.wikipedia.org/wiki/Bus_(computing" target="_blank" rel="noopener">[1]</a>#cite_note-1) (a contraction of the Latin <em>omnibus</em>) is a communication system that transfers data between components inside a <a href="https://en.wikipedia.org/wiki/Computer" target="_blank" rel="noopener">computer</a>, or between computers. This expression covers all related hardware components (wire, optical fiber, etc.) and software, including communication protocols.<a href="https://en.wikipedia.org/wiki/Bus_(computing" target="_blank" rel="noopener">[2]</a>#cite_note-2) </p>
+</blockquote>
+<p>问: 为什么要设计多级总线架构 ?</p>
+<blockquote>
+<p>答: 多级总线针对的是不同IO设备所作出的优化, 低速设备连接到低速总线, 高速设备连接到高速总线</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-13/59736801.jpg" alt=""></p>
+</blockquote>
+<p>问: 一个IO设备的组成是什么?</p>
+<blockquote>
+<p> 答: 外部接口以及内部实现.</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-13/29166608.jpg" alt=""></p>
+</blockquote>
+<p>问: 操作系统如何与IO设备交互?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>详细</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIO</td>
+<td>轮询IO设备的状态并给command和data寄存器写入数据</td>
+<td>性能问题</td>
+</tr>
+<tr>
+<td>中断</td>
+<td>把PIO中轮询改为中断,IO设备把状态推给OS</td>
+<td>中断处理, 上下文切换, CPU读写IO</td>
+</tr>
+<tr>
+<td>DMA</td>
+<td>CPU不再读写IO, DMA直接把IO设备中的数据放到内存</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 什么是RAID ?</p>
+<blockquote>
+<p>答:  At a high level, a RAID is very much a specialized computer system: it has a processor, memory,and disks; however,instead of running applications, it runs specialized software designed to operate the RAID.</p>
+</blockquote>
+<p>问: RAID解决了什么问题?</p>
+<blockquote>
+<p>答: 磁盘的可靠性和性能问题. 使用多快磁盘并行读写, 使用冗余磁盘确保数据不丢失.</p>
+</blockquote>
+<p>问: RAID是如何实现的 ?</p>
+<blockquote>
+<p>答: 对RAID的IO请求都会转化了对几个磁盘的IO请求(封装, 转发)</p>
+</blockquote>
+<p>问: RAID有哪些实现 ?</p>
+<blockquote>
+<p>答:</p>
+<table>
+<thead>
+<tr>
+<th>实现</th>
+<th>容量(n为数量, N为容量)</th>
+<th>可靠性</th>
+<th>速度(单盘速度s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAID0</td>
+<td>n x N</td>
+<td>无</td>
+<td>s * N</td>
+</tr>
+<tr>
+<td>RAID1(镜像)</td>
+<td>n * N / 2</td>
+<td>可以损坏一块盘</td>
+<td>和单个磁盘持平</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 什么是文件?</p>
+<blockquote>
+<p>答: inode, 提供了顺序和随机读写的接口. 文件头提供了初数据之外的全部信息.</p>
+<p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1534163323569.png" alt="1534163323569"></p>
+</blockquote>
+<p>问: 什么是文件夹?</p>
+<blockquote>
+<p>答: [{inode: “fileName”}]</p>
+</blockquote>
+<p>问: 如何保证磁盘中的数据在断电或者系统宕机之后还能保持一致?</p>
+<blockquote>
+<p>答: 磁盘数据写入是一个事务, 包括多个操作, 写头信息, 写入数据等, 需要保证事务的原子性. 那么问题的实质是如何实现一个磁盘更新的事务.</p>
+<p>实现一: 定时扫描磁盘, 如果发现有不一致的状态, 然后修复. 缺点是太慢了</p>
+<p>实现二: 提前写日志, 如果系统宕机, 那么可以从日志中得到足够的信息恢复</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/11/设计模式-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/11/设计模式-一/" itemprop="url">设计模式(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T19:47:04+08:00">
+                2018-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是单一职责原则 ?</p>
+<blockquote>
+<p>答: do one thing and do it well.</p>
+</blockquote>
+<p>问: 单一职责原则是面向对象的原则吗?</p>
+<blockquote>
+<p>答: 不是, 单一职责原则的可以用于函数, 类, 类库甚至是一个完整的应用, 并不是面向对象特有的.</p>
+</blockquote>
+<p>问: 什么是职责?</p>
+<blockquote>
+<p>答: 只有一个理由去改变.</p>
+</blockquote>
+<p>问: 什么是里氏替换原则?</p>
+<blockquote>
+<p>答: 子类型不能打破父类型的契约(接口).</p>
+</blockquote>
+<p>问: 什么是开闭原则 ?</p>
+<blockquote>
+<p>答: 闭: 向后兼容. 开: 开发新功能. 总结一句话: 开发新功能不能破坏向后兼容性. 新版本和旧版本要可替换(接口稳定).</p>
+</blockquote>
+<p>问: 依赖倒置原则 ?</p>
+<blockquote>
+<p>答: 依赖于接口(不变)而不是具体实现(变化) –&gt; 单一职责原则</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/10/Java之内存模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/10/Java之内存模型/" itemprop="url">Java之内存模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T21:48:31+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是Java内存模型?</p>
+<blockquote>
+<p>答: 由程序员自己控制一部分JVM代码优化的过程(只保证在单线程). JVM可以做到在指令级别内存读写优化并保证单线程情况下的语义不变.</p>
+</blockquote>
+<p>原子性: new</p>
+<p>可见性: </p>
+<p>顺序</p>
+<hr>
+<p>问: 如何控制JVM代码优化?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>反优化</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>final</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>volatile</td>
+<td>直接读写主存, 而不使用CPU缓存</td>
+<td>只要volatile字段更新, 那么后续的线程读取确保是最新的值</td>
+</tr>
+<tr>
+<td>synchronized</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 非volatile字段与volatile字段有什么区别?</p>
+<blockquote>
+<p>答:</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-11/41664555.jpg" alt="非volatile字段, 每个CPU都有缓存"><br><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-11/14701928.jpg" alt="volatile字段直接读写主存"></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/10/Java之多线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/10/Java之多线程/" itemprop="url">Java之多线程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T15:18:42+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是线程安全 ?</p>
+<blockquote>
+<p>答: 一个类的行为在单线程和多线程的情况下表现完全一致, 那么它就是线程安全的</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/09/数据库之事务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,1107 +1727,138 @@
 <p>答: 函数的后置条件必须满足.</p>
 </blockquote>
 <hr>
-<p>问: </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/08/OS之并发/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/08/OS之并发/" itemprop="url">OS之并发</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-08T20:28:48+08:00">
-                2018-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问: 什么需要并发?</p>
+<p>问: 什么会影响数据库的一致性 ?</p>
 <blockquote>
-<p> 答: 速度快</p>
-</blockquote>
-<hr>
-<p>问: 并发需要面对的问题是什么?</p>
-<blockquote>
-<p>答: 确保程序的正确性.</p>
-</blockquote>
-<hr>
-<p>问: 什么影响了程序的正确性 ?</p>
-<blockquote>
-<p>答: 线程之间共享可写资源, 如内存 文件系统</p>
-</blockquote>
-<hr>
-<p>问: 多进程之间会有这个正确性的问题吗 ?</p>
-<blockquote>
-<p>答: 视情况, 判断的关键是二者之间是否有共享可写资源.</p>
-</blockquote>
-<hr>
-<p>问: 如何解决正确性的问题 ?</p>
-<blockquote>
-<p>答: 不共享: 每个线程都有自己的拷贝资源, 或者是在写共享资源时不可被中断; 不可写: 只读资源可以共享访问.</p>
-</blockquote>
-<hr>
-<p>问: 如何实现不可被中断?</p>
-<blockquote>
-<p>答: 锁, 哪怕被中断, 其他线程也因为没有锁而取消执行</p>
-</blockquote>
-<hr>
-<p>问: 如何协调多个线程之间的调度 ?</p>
-<blockquote>
-<p> 答: 这本身是一个线程沟通的问题, 线程之间必须有沟通才能协商调度. 锁可以认为是最基础的一个沟通方式, 告诉其他线程共享资源是否在使用, 但是这种方式太基础了,无法满足复杂的需求.</p>
-</blockquote>
-<hr>
-<p>问: 那么条件变量也是共享可写资源?</p>
-<blockquote>
-<p>答: 是的, 所以只可以在一个线程持有锁的时候才能使用条件变量.</p>
-</blockquote>
-<hr>
-<p>问: 如何实现一个锁?</p>
-<blockquote>
-<p> 答:  锁的目的是当操作系统进行线程切换时程序员可以进行一定的调度(程序员承担一部分系统调度的责任)</p>
+<p>答: 对共享数据的写操作没有进行同步, 也就是冲突</p>
 <table>
 <thead>
 <tr>
-<th>实现方式</th>
+<th>类型</th>
+<th>导致的结果</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ-WRITE</td>
+<td>无法重复读</td>
+<td></td>
+</tr>
+<tr>
+<td>WRITE-READ</td>
+<td>脏读(读到未提交的数据)</td>
+<td></td>
+</tr>
+<tr>
+<td>WRITE-WRITE</td>
+<td>覆盖写</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 什么是可串行化 ?</p>
+<blockquote>
+<p>答: </p>
+<ol>
+<li><p>串行:  一次只有一个事务能够执行, 完全没有调度</p>
+</li>
+<li><p>非串行化: 并发执行, 有调度</p>
+<ol>
+<li>有N种调度结果</li>
+<li>一部分调度结果会导致数据库处于非一致状态</li>
+<li>一部分调度结果会导致数据库处于一致状态 </li>
+<li>这种调度结果的检测就是可串行化检测</li>
+</ol>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Concurrency_control" target="_blank" rel="noopener">concurrency control</a> of <a href="https://en.wikipedia.org/wiki/Database" target="_blank" rel="noopener">databases</a>,<a href="https://en.wikipedia.org/wiki/Serializability#cite_note-Bernstein87-1" target="_blank" rel="noopener">[1]</a><a href="https://en.wikipedia.org/wiki/Serializability#cite_note-Weikum01-2" target="_blank" rel="noopener">[2]</a> <a href="https://en.wikipedia.org/wiki/Transaction_processing" target="_blank" rel="noopener">transaction processing</a> (transaction management), and various <a href="https://en.wikipedia.org/wiki/Database_transaction" target="_blank" rel="noopener">transactional</a> applications (e.g., <a href="https://en.wikipedia.org/wiki/Transactional_memory" target="_blank" rel="noopener">transactional memory</a><a href="https://en.wikipedia.org/wiki/Serializability#cite_note-Herlihy1993-3" target="_blank" rel="noopener">[3]</a> and <a href="https://en.wikipedia.org/wiki/Software_transactional_memory" target="_blank" rel="noopener">software transactional memory</a>), both centralized and <a href="https://en.wikipedia.org/wiki/Distributed_computing" target="_blank" rel="noopener">distributed</a>, a transaction <a href="https://en.wikipedia.org/wiki/Schedule_(computer_science" target="_blank" rel="noopener">schedule</a>) is <strong>serializable</strong> if its outcome (e.g., the resulting database state) is equal to the outcome of its transactions executed serially, i.e. without overlapping in time.  </p>
+</blockquote>
+<p>总结来说: 可序列化是一个评价方式, 评价数据库调度, 评价标准是数据库状态的一致性. 只要数据库的事务在调度之后处于和调度之前一致的状态, 那么我们就称这个调度为可序列化的调度.</p>
+<p>在操作系统中, 系统的调度主要是由操作系统进行的, 程序员通过一些同步手段来控制调度.</p>
+<p>但是在数据库中, 事务的调度是由数据库自己计算出来的, 减少了程序员的负担.</p>
+</li>
+</ol>
+</blockquote>
+<p>问: 数据库如何保证并发事务的一致性 ?</p>
+<blockquote>
+<p>答: 类似于操作系统, 使用锁.</p>
+<p>不同事务可以持有的锁</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>读锁</th>
+<th>写锁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读锁</td>
+<td>✔</td>
+<td>✖</td>
+</tr>
+<tr>
+<td>写锁</td>
+<td>✖</td>
+<td>✖</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 什么是两阶段锁 ?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>获取锁阶段</th>
+<th>获取事务中的所有锁</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>释放锁阶段</td>
+<td>开始释放事务中的锁</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-15/10010562.jpg" alt=""><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-15/34431779.jpg" alt=""><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1534343017028.png" alt="1534343017028"></p>
+<p>锁越安全, 越接近串行.</p>
+</blockquote>
+<p>问: 如何避免死锁?</p>
+<blockquote>
+<p>答</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>实现</th>
 <th>优点</th>
 <th>缺点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>禁止操作系统切换进程</td>
-<td>简单</td>
-<td>只在单核系统中有用, 权限问题</td>
+<td>死锁检测</td>
+<td>有一个单独的线程检测LockManager, 发现死锁之后abort其中一个事务–&gt; tryLock</td>
+<td>不影响之前的实现逻辑</td>
+<td>1. 轮询<br>2. 死锁处理逻辑</td>
 </tr>
 <tr>
-<td>轮询</td>
-<td>简单, 多核可用</td>
-<td>性能问题</td>
-</tr>
-<tr>
-<td>休眠等待队列(计数器为1)</td>
-<td>不需要轮询, 性能好, 可以控制下一个锁的获得线程</td>
+<td>死锁避免</td>
+<td>锁只能被一个事务持有, 不存在等待, 也就无法死锁. 当获取一个被持有的锁时, 要么终止持有锁的事务, 要么终止获取锁的事务. tryLock(0)</td>
 <td></td>
 </tr>
-<tr>
-<td>休眠等待队列 + 计数器</td>
-<td>更加灵活</td>
-</tr>
 </tbody>
 </table>
 </blockquote>
-<hr>
-<p>问: 如何实现一个条件变量 ?</p>
-<blockquote>
-<p>答: 和实现锁一样, 只是把锁的状态改为条件变量的条件.</p>
-</blockquote>
-<hr>
-<p>问: 为什么需要在多线程的代码中使用while 而不是 if ?</p>
-<hr>
-<blockquote>
-<p> 答:  while 比 if 多循环一次, 可以避免在条件判断之后进行线程切换导致条件不满足, 但是程序无法继续判断.</p>
-</blockquote>
-<hr>
-<p>问: 多线程下常见的BUG有哪些?</p>
-<blockquote>
-<p>答: </p>
-<table>
-<thead>
-<tr>
-<th>BUG</th>
-<th>描述</th>
-<th>解决</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>共享可写资源访问不上锁</td>
-<td></td>
-<td>互斥访问共享资源</td>
-</tr>
-<tr>
-<td>线程之间调度靠运气</td>
-<td></td>
-<td>条件变量进行调度</td>
-</tr>
-<tr>
-<td>死锁</td>
-<td>1. 互斥访问<br>2. 持有一个锁, 等待一个锁<br>3. 被持有的锁无法释放<br>4. 环形等待</td>
-<td>1. 使用全局唯一的获取锁的顺序避免环形等待.<br>2. 使用tryLock释放锁</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/06/OS之内存/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/06/OS之内存/" itemprop="url">OS之内存</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-06T10:34:36+08:00">
-                2018-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问: 内存面临的问题是什么?</p>
-<blockquote>
-<p>答: currency.</p>
-</blockquote>
-<hr>
-<p>问: 可以使用时间片的方式来解决这个问题吗?</p>
-<blockquote>
-<p>答: 不可以, 对于CPU来说, 时间片切换只需要切换寄存器就好了, 容量小, 速度快. 但是内存相对来说容量大, 速度慢, 切换是无法接受的.</p>
-</blockquote>
-<hr>
-<p>问: 那么我们如何解决这个问题?</p>
-<blockquote>
-<p>答: 可以使用基于空间的虚拟化技术, 把内存分块.</p>
-</blockquote>
-<hr>
-<p>问: 如何实现虚拟化内存技术?</p>
-<blockquote>
-<p>答: 类似于所有的虚拟化技术, 不要直接访问物理内存, 访问它的代理层(虚拟内存).</p>
-</blockquote>
-<hr>
-<p>问: 内存的类型有哪些?</p>
-<blockquote>
-<p>答: 栈: 函数调用自动生成. 堆: 由程序员手动分配.</p>
-</blockquote>
-<hr>
-<p>问: 虚拟内存带来的优点是什么? </p>
-<blockquote>
-<p>答: currency &amp; protection(安全代理)</p>
-</blockquote>
-<hr>
-<p>问: 代理层到物理层的转换是怎么实现的</p>
-<blockquote>
-<p>答: 首先, 这个代理具有透明性, 一般情况下由操作系统实现, 用户程序是无法也无须知道的. 其次, 代理层的实现是通过硬件支持来实现的. 具体的实现有:</p>
-</blockquote>
-<ol>
-<li><p>base &amp; bound</p>
-<p>程序启动时操作系统会给程序分配它的初始地址和结束地址, 划定一个地址段. 而在程序眼中, 它的地址是从0开始的, 所以 虚地址 + 基地址 =  物理地址.</p>
-<p>这个方法有几个问题, 首先是它假设所有的内存都是连续的, 一旦内存碎片化, 那么就无法载入新的程序. 其次, 储存效率不高, b&amp;b必须提前规划内存大小, 一旦划定内存, 哪怕没有被利用, 操作系统也无法再次分配.</p>
-</li>
-<li><p>segmentation</p>
-<p> 把程序的连续空间按照逻辑划分为多个段, 每个段离散储存, 这样可以缓解碎片化的问题, 而且stack 和 heap 的未使用空间也不会被浪费.</p>
-<p> segment | base | size | Grows Positive? | permission(for share)<br> — | — | — | — | —<br> Code | 32K | 2K | true |<br> Heap | 34K | 2K | true |<br> Stack | 28K | 2K | false |</p>
-<p> 每次访问内存, 首先我们确定需要访问内存的类型(通过字节标记), 然后计算出相应的偏移量, 然后和Base相加得到实际的内存地址.</p>
-</li>
-</ol>
-<hr>
-<p>问: 如何管理已经碎片化的内存空间?</p>
-<blockquote>
-<p>答: 内存管理的主要操作是分配与回收.</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>操作类型</th>
-<th>条件</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>分配</td>
-<td>请求的内存大于任意空闲的内存</td>
-<td>分配失败</td>
-</tr>
-<tr>
-<td>分配</td>
-<td>请求的内存等于空闲的内存中的一块</td>
-<td>满足条件的内存被分配</td>
-</tr>
-<tr>
-<td>分配</td>
-<td>请求的内存小于空闲的内存中的一块</td>
-<td>满足条件的内存被分为两份, 一份用于分配, 一份形成新的空闲内存块</td>
-</tr>
-<tr>
-<td>回收</td>
-<td>任意条件</td>
-<td>形成更大的连续内存 </td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>问: 如何快速获取一块已分配的内存空间的大小?</p>
-<blockquote>
-<p>答: 最简单的方法是直接数, 效率太低. 分配内存时, 会给每个内存添加一个头部, 这个头部储存了内存快的大小, 类似于HTTP Header.</p>
-</blockquote>
-<p>问: 内存分配的策略有哪些? 各有什么优缺点?</p>
-<blockquote>
-<p> 答: 回答这个问题首先需要知道内存分配算法的评判标准:</p>
-<ol>
-<li><p>外部碎片化: 当空闲内存被分成小区块，分别为不同的进程所使用时，便会出现外部碎片（external fragmentation）。这种情况下，虽然空闲空间足够大，但是程序没法使用，因为剩余空间被分成了大大小小的区块，没有一块能够大到程序可以使用。 </p>
-</li>
-<li><p>内部碎片化: 当一个进程装入到固定大小的分区块（比如页）时，假如进程所需空间小于分区块，则分区块的剩余的空间将无法被系统使用，称为内部碎片（internal fragmentation）。</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">算法</th>
-<th style="text-align:center">实现</th>
-<th style="text-align:center">优点</th>
-<th style="text-align:center">缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Best Fit</td>
-<td style="text-align:center">找到所有空闲内存块中最小的内存块</td>
-<td style="text-align:center">简单, 内部碎片化小, 外部碎片化小</td>
-<td style="text-align:center">需要遍历和排序所有的空闲内存块</td>
-</tr>
-<tr>
-<td style="text-align:center">Worst Fit</td>
-<td style="text-align:center">找到所有空闲内存块中最大的内存块</td>
-<td style="text-align:center">内部碎片小</td>
-<td style="text-align:center">外部碎片大(把大内存块切割成小内存块), 需要遍历和排序</td>
-</tr>
-<tr>
-<td style="text-align:center">First Fit</td>
-<td style="text-align:center">找到第一个可以满足需求的内存块</td>
-<td style="text-align:center">无须遍历和排序</td>
-<td style="text-align:center">随着内存的使用, 已被分配的区域会越来越大, 但是每次都要扫描</td>
-</tr>
-<tr>
-<td style="text-align:center">Next Fit</td>
-<td style="text-align:center">在First fit的基础上保留上次分配的指针, 新的分配直接从上次分配的地方开始</td>
-<td style="text-align:center">无须遍历, 无须担心大量使用之后效率变差</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<hr>
-<p>问: 分段的缺点是什么?</p>
-<blockquote>
-<p>答:  内存的碎片化, 以及动态大小的内存块的管理问题. 存在这种问题的根本原因是: 分段是按照逻辑划分的.</p>
-</blockquote>
-<hr>
-<p>问: 什么是分页?</p>
-<blockquote>
-<p> 答: 基于物理定长划分内存的一种方式. 这样做的好处有:</p>
-<ol>
-<li>不在依赖于程序的逻辑划分, 更加灵活. 把内存进一步抽象成一个存储对象, 方便之后与硬盘等存储的交互.</li>
-<li>简单: 不需要动态可变内存的管理.</li>
-</ol>
-</blockquote>
-<hr>
-<p>问: 如何定位一个具体的内存地址呢呢 ?</p>
-<blockquote>
-<p>答: 这个问题涉及到内存的定位问题. 首先我们需要确定要访问的内存在哪个页(页码), 其次我们需要确定具体的内存在页中的偏移. 那么我们就可以把内存中的任意一个地址表示为 <code>virtualPageNumber:offset</code> . 在地址转换的时候只需要转换页码就可以了: <code>physicalPageNumber:offset</code></p>
-</blockquote>
-<hr>
-<p>问: 一个页表有多大 ?</p>
-<blockquote>
-<p>答: 对于32位的地址空间, 每个页长度为4KB, 那么我们的offset需要12位来表示, 剩下的20位可以表示VPN(virtualPageNumber), 那么我们就有2^20个页项需要表示, 每个页项占用4位的内存,  那么一个进程就需要占用4MB的内存, 如果在操作系统中有100个进程, 那么就需要占用400MB的内存大小.</p>
-</blockquote>
-<hr>
-<p>问: 基于分页的虚拟内存有什么缺点 ?</p>
-<blockquote>
-<p>答: 页表太大, 需要存储在物理内存中, 每次查询需要访问内存, 速度太慢了. –&gt; 基于硬件的加速(缓存)</p>
-</blockquote>
-<hr>
-<p>问: 如何减小页表的大小 ?</p>
-<blockquote>
-<p>答: 更大的页. 但是会造成更大的内部碎片.</p>
-</blockquote>
-<hr>
-<p>问: 如何优化大的页表 ?</p>
-<blockquote>
-<p>答: </p>
-<ol>
-<li>segment + page 来做分表, segment提供b&amp;b, page提供offset, segment 的缺点就是依赖于应用程序的内存布局, 并且还要管理动态内存块.</li>
-<li>线性转树形, 把表转化成目录.</li>
-</ol>
-</blockquote>
-<hr>
-<p>问: 程序使用的内存超过物理内存怎么办 ? </p>
-<blockquote>
-<p>答: 把一部分内存转存到硬盘中去(swap), 哪怕程序很小, 但是在程序运行时, 热点page只有10%, 我们只需要在内存中储存这10%就可以了.(怎么确认10%)</p>
-</blockquote>
-<hr>
-<p>问: 如何在内存和硬盘中切换page ?</p>
-<blockquote>
-<p>答: 访问内存时发现页不在物理内存中, 那么就产生pageFault 事件, 由操作系统负责把page从硬盘加载到内存.</p>
-</blockquote>
-<hr>
-<p>问: 内存置换的策略是什么?</p>
+<p>问: 并发控制</p>
 <blockquote>
 <ol>
-<li>FIFO : 先入先出, 无视内存访问的特性</li>
-<li>优先队列: 访问频率最低的置出</li>
+<li>two-phase-locking(代价)</li>
+<li>multi-version-concurrency-control(发现冲突)</li>
 </ol>
 </blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/05/OS之进程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/05/OS之进程/" itemprop="url">OS之进程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T10:33:48+08:00">
-                2018-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问: 什么是进程?</p>
-<p>答: 运行中的程序.</p>
-<p>问: 什么是程序?</p>
-<p>答: 储存在磁盘中的二进制文件.</p>
-<p>问: 进程由什么组成?</p>
-<p>答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态.</p>
-<p>问: 进程还由什么组成?</p>
-<p>答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存.</p>
-<p>问: 进程还由什么组成?</p>
-<p>答: IO设备, 常见的有硬盘.</p>
-<p>问: 程序是如何从硬盘加载到内存中的?</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg" alt=""></p>
-<p>问: 进程有哪些状态?</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/62406262.jpg" alt=""></p>
-<p>问: 操作系统如何控制进程?</p>
-<p>答: 通过代理, 对系统资源的操作必须通过操作系统(kernel mode)的系统调用.</p>
-<p>问: 系统调用是如何实现的?</p>
-<p>答: 通过软中断.</p>
-<p>问: 什么是中断?</p>
-<p>答: 操作系统事件.</p>
-<p>问: 操作系统如何重新获得控制权?</p>
-<p>答: 乐观: 等待进程放弃执行  悲观: 定时强制切换到操作系统控制</p>
-<p>问: 进程是如何切换的? </p>
-<p>答: 进程的组成是有两部分: 静态的代码和数据 + 动态的运行状态(内存 + 寄存器), 只要能保存并恢复运行状态, 那么进程就可以切换.</p>
-<p>问: 进程的调度算法有哪些?</p>
-<p>答: 最简单的调度算法是FIFO, 使用队列进行调度.</p>
-<p>问: FIFO调度算法有什么缺点, 造成这个缺点的原因是什么?</p>
-<p>答: 如果队列中有一个任务运行时间过长, 那么会导致这个任务的之后的所有任务得不到运行(饥饿).</p>
-<p>造成这个问题的主要原因是: 长任务的优先级过高.</p>
-<p>问: 如何解决短任务的饥饿问题?</p>
-<p>答: 使用优先队列, 短任务优先.</p>
-<p>问: 短任务优先有什么缺点?</p>
-<p>答: 所有的任务必须提前规划好才可以(预测能力), 但这个是不现实的.</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/90178355.jpg" alt=""></p>
-<p>问: 上述两个基于队列的算法不合适的本质原因是什么?</p>
-<ol>
-<li>队列的基本元素是以任务为单位的, 一个任务一旦开始执行就无法再次调度.</li>
-<li>调度器是静态的, 只能预先把任务规划好.</li>
-</ol>
-<p>问: 还有什么调度算法?</p>
-<p>答: RR, 循环队列, 队列中的每一个任务都运行一定的时间片, 然后切换. 这个算法的优点是:</p>
-<ol>
-<li>动态, 新的任务入队马上就可以得到时间片.</li>
-<li>把时间片作为可调度的资源, 而不是按照任务分配</li>
-</ol>
-<p>问: RR有什么缺点?</p>
-<p>答: 对于单个任务来说, 完成的时间变长了. 因为时间片要轮转.</p>
-<p>问: 还有什么调度算法?</p>
-<p>答: 多级反馈队列调度算法, 这个算法有多个队列, 每个队列有不同的优先级, 当任务开始进入调度器时, 优先级最高, 当任务在时间片内还没有执行完毕, 那么就移动到下一个优先级队列(后台任务); 如果任务在当前时间片内主动放弃CPU, 那么保持在当前队列(和用户交互的任务).</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/99088326.jpg" alt=""></p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/73807220.jpg" alt=""></p>
-<p>问: 多级反馈队列调度算法有什么缺点?</p>
-<p>答: 当用户主动放弃CPU时, 任务的优先级保持不变. 用户可以编写恶意程序主动放弃CPU确保他的程序一直在最高优先级. 而且只要最高优先级有任务, 那么低优先级队列就无法得到时间片, 所以需要操作系统隔一段时间之后把所有的任务都提升到最高优先级队列.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/04/OS简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/04/OS简介/" itemprop="url">OS简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-04T23:32:17+08:00">
-                2018-08-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-程序是怎么跑起来的"><a href="#1-程序是怎么跑起来的" class="headerlink" title="1. 程序是怎么跑起来的?"></a>1. 程序是怎么跑起来的?</h1><p>程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&gt; 解码 -&gt; 运行. 伪代码表示如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    ins = getNextInstruction()</span><br><span class="line">    decoded_ins = decode_ins(ins)</span><br><span class="line">    exec_ins(decoded_ins)</span><br></pre></td></tr></table></figure>
-<p>程序要运行是需要硬件资源的, 但是我们在编写代码时不会在每一个程序中都实现一套自己的文件系统, 我们也没有在创建文件的时候区分是固态硬盘还是机械硬盘, 而这一切的便利都是操作系统提供给我们的.</p>
-<p>操作系统封装了硬件资源, 然后给我们提供了易用的接口. </p>
-<p>其次, 操作系统把硬件资源合理的分配给每个程序, 这时, 操作系统就作为了硬件资源你的管理者.</p>
-<h1 id="2-什么是虚拟化-为什么我们需要虚拟化"><a href="#2-什么是虚拟化-为什么我们需要虚拟化" class="headerlink" title="2. 什么是虚拟化, 为什么我们需要虚拟化?"></a>2. 什么是虚拟化, 为什么我们需要虚拟化?</h1><p>首先虚拟化是假的, 不真实的. 我们需要虚拟化因为真实的硬件是无法满足我们需求.</p>
-<p>那么, 我们的需求是什么呢? 多进程并发执行.</p>
-<p>还是最开始的程序执行代码, 当我们只有一个程序在一个CPU中在运行时, 这个代码没问题, 但是如果我们两个或者三个程序都需要同时运行呢?</p>
-<p>这个需求是无法实现的, 因为一个CPU在具体的某一个时刻只可能在执行一个程序的一条指令. </p>
-<p>我们的需求现在就转变为如何把一个物理CPU变为多个CPU. 这个神奇的过程就是虚拟化. </p>
-<p>总结来说: 虚拟化就是通过一定的技术手段, 把硬件改造为满足我们需求的形式.</p>
-<p>把单个物理CPU改造为多个CPU的过程被称为虚拟化CPU.<br>把单个物理内存空间改造为多个内存空间的过程被称为虚拟化内存.</p>
-<h1 id="3-持久化储存"><a href="#3-持久化储存" class="headerlink" title="3. 持久化储存"></a>3. 持久化储存</h1><p>持久化储存主要是IO设备中的硬盘, 用于储存程序运行的结果. 对于程序员来说, 操作系统给我们提供的是文件系统作为持久化储存的抽象. 文件系统一般情况下全局共享的, 不同的程序之间可以通过文件系统来共享数据. </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/02/helloworld/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/02/helloworld/" itemprop="url">helloworld</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-02T18:37:06+08:00">
-                2018-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="this-is-titile"><a href="#this-is-titile" class="headerlink" title="this is titile"></a>this is titile</h1><p>hello world</p>
-<h1 id="this-is-code-block"><a href="#this-is-code-block" class="headerlink" title="this is code block"></a>this is code block</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"helloworld"</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="this-is-picture"><a href="#this-is-picture" class="headerlink" title="this is picture"></a>this is picture</h1><p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-2/25180786.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/02/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-02T18:31:12+08:00">
-                2018-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -1466,6 +1897,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1509,7 +1944,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1522,7 +1957,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

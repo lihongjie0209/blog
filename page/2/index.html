@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="操作系统," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="问: 内存面临的问题是什么?  答: currency.   问: 可以使用时间片的方式来解决这个问题吗?  答: 不可以, 对于CPU来说, 时间片切换只需要切换寄存器就好了, 容量小, 速度快. 但是内存相对来说容量大, 速度慢, 切换是无法接受的.   问: 那么我们如何解决这个问题?  答: 可以使用基于空间的虚拟化技术, 把内存分块.   问: 如何实现虚拟化内存技术?  答: 类似于所">
-<meta name="keywords" content="操作系统">
-<meta property="og:type" content="article">
-<meta property="og:title" content="OS之内存">
-<meta property="og:url" content="https://lihongjie0209.github.io/2018/08/06/OS之内存/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="李宏杰的博客">
+<meta property="og:url" content="https://lihongjie0209.github.io/page/2/index.html">
 <meta property="og:site_name" content="李宏杰的博客">
-<meta property="og:description" content="问: 内存面临的问题是什么?  答: currency.   问: 可以使用时间片的方式来解决这个问题吗?  答: 不可以, 对于CPU来说, 时间片切换只需要切换寄存器就好了, 容量小, 速度快. 但是内存相对来说容量大, 速度慢, 切换是无法接受的.   问: 那么我们如何解决这个问题?  答: 可以使用基于空间的虚拟化技术, 把内存分块.   问: 如何实现虚拟化内存技术?  答: 类似于所">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-08T12:28:58.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OS之内存">
-<meta name="twitter:description" content="问: 内存面临的问题是什么?  答: currency.   问: 可以使用时间片的方式来解决这个问题吗?  答: 不可以, 对于CPU来说, 时间片切换只需要切换寄存器就好了, 容量小, 速度快. 但是内存相对来说容量大, 速度慢, 切换是无法接受的.   问: 那么我们如何解决这个问题?  答: 可以使用基于空间的虚拟化技术, 把内存分块.   问: 如何实现虚拟化内存技术?  答: 类似于所">
+<meta name="twitter:title" content="李宏杰的博客">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="https://lihongjie0209.github.io/2018/08/06/OS之内存/"/>
+  <link rel="canonical" href="https://lihongjie0209.github.io/page/2/"/>
 
 
 
 
 
-  <title>OS之内存 | 李宏杰的博客</title>
+  <title>李宏杰的博客</title>
   
 
 
@@ -145,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +214,244 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/08/OS之并发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/08/OS之并发/" itemprop="url">OS之并发</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-08T20:28:48+08:00">
+                2018-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么需要并发?</p>
+<blockquote>
+<p> 答: 速度快</p>
+</blockquote>
+<hr>
+<p>问: 并发需要面对的问题是什么?</p>
+<blockquote>
+<p>答: 确保程序的正确性.</p>
+</blockquote>
+<hr>
+<p>问: 什么影响了程序的正确性 ?</p>
+<blockquote>
+<p>答: 线程之间共享可写资源, 如内存 文件系统</p>
+</blockquote>
+<hr>
+<p>问: 多进程之间会有这个正确性的问题吗 ?</p>
+<blockquote>
+<p>答: 视情况, 判断的关键是二者之间是否有共享可写资源.</p>
+</blockquote>
+<hr>
+<p>问: 如何解决正确性的问题 ?</p>
+<blockquote>
+<p>答: 不共享: 每个线程都有自己的拷贝资源, 或者是在写共享资源时不可被中断; 不可写: 只读资源可以共享访问.</p>
+</blockquote>
+<hr>
+<p>问: 如何实现不可被中断?</p>
+<blockquote>
+<p>答: 锁, 哪怕被中断, 其他线程也因为没有锁而取消执行</p>
+</blockquote>
+<hr>
+<p>问: 如何协调多个线程之间的调度 ?</p>
+<blockquote>
+<p> 答: 这本身是一个线程沟通的问题, 线程之间必须有沟通才能协商调度. 锁可以认为是最基础的一个沟通方式, 告诉其他线程共享资源是否在使用, 但是这种方式太基础了,无法满足复杂的需求.</p>
+</blockquote>
+<hr>
+<p>问: 那么条件变量也是共享可写资源?</p>
+<blockquote>
+<p>答: 是的, 所以只可以在一个线程持有锁的时候才能使用条件变量.</p>
+</blockquote>
+<hr>
+<p>问: 如何实现一个锁?</p>
+<blockquote>
+<p> 答:  锁的目的是当操作系统进行线程切换时程序员可以进行一定的调度(程序员承担一部分系统调度的责任)</p>
+<table>
+<thead>
+<tr>
+<th>实现方式</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>禁止操作系统切换进程</td>
+<td>简单</td>
+<td>只在单核系统中有用, 权限问题</td>
+</tr>
+<tr>
+<td>轮询</td>
+<td>简单, 多核可用</td>
+<td>性能问题</td>
+</tr>
+<tr>
+<td>休眠等待队列(计数器为1)</td>
+<td>不需要轮询, 性能好, 可以控制下一个锁的获得线程</td>
+<td></td>
+</tr>
+<tr>
+<td>休眠等待队列 + 计数器</td>
+<td>更加灵活</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<hr>
+<p>问: 如何实现一个条件变量 ?</p>
+<blockquote>
+<p>答: 和实现锁一样, 只是把锁的状态改为条件变量的条件.</p>
+</blockquote>
+<hr>
+<p>问: 为什么需要在多线程的代码中使用while 而不是 if ?</p>
+<hr>
+<blockquote>
+<p> 答:  while 比 if 多循环一次, 可以避免在条件判断之后进行线程切换导致条件不满足, 但是程序无法继续判断.</p>
+</blockquote>
+<hr>
+<p>问: 多线程下常见的BUG有哪些?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>BUG</th>
+<th>描述</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>共享可写资源访问不上锁</td>
+<td></td>
+<td>互斥访问共享资源</td>
+</tr>
+<tr>
+<td>线程之间调度靠运气</td>
+<td></td>
+<td>条件变量进行调度</td>
+</tr>
+<tr>
+<td>死锁</td>
+<td>1. 互斥访问<br>2. 持有一个锁, 等待一个锁<br>3. 被持有的锁无法释放<br>4. 环形等待</td>
+<td>1. 使用全局唯一的获取锁的顺序避免环形等待.<br>2. 使用tryLock释放锁</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
 
   
 
@@ -250,7 +481,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OS之内存</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/06/OS之内存/" itemprop="url">OS之内存</a></h1>
         
 
         <div class="post-meta">
@@ -300,7 +533,9 @@
       
 
       
-        <p>问: 内存面临的问题是什么?</p>
+        
+          
+            <p>问: 内存面临的问题是什么?</p>
 <blockquote>
 <p>答: currency.</p>
 </blockquote>
@@ -493,6 +728,8 @@
 </ol>
 </blockquote>
 
+          
+        
       
     </div>
     
@@ -507,40 +744,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/blog/tags/操作系统/" rel="tag"># 操作系统</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2018/08/05/OS之进程/" rel="next" title="OS之进程">
-                <i class="fa fa-chevron-left"></i> OS之进程
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/08/08/OS之并发/" rel="prev" title="OS之并发">
-                OS之并发 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -550,11 +761,318 @@
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/05/OS之进程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/05/OS之进程/" itemprop="url">OS之进程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-05T10:33:48+08:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是进程?</p>
+<p>答: 运行中的程序.</p>
+<p>问: 什么是程序?</p>
+<p>答: 储存在磁盘中的二进制文件.</p>
+<p>问: 进程由什么组成?</p>
+<p>答: 内存, 进程运行时需要对内存进行读写才能保持自己的状态.</p>
+<p>问: 进程还由什么组成?</p>
+<p>答: CPU寄存器, 也是内存的一种, 不过是CPU专用的高速内存.</p>
+<p>问: 进程还由什么组成?</p>
+<p>答: IO设备, 常见的有硬盘.</p>
+<p>问: 程序是如何从硬盘加载到内存中的?</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/18178959.jpg" alt=""></p>
+<p>问: 进程有哪些状态?</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/62406262.jpg" alt=""></p>
+<p>问: 操作系统如何控制进程?</p>
+<p>答: 通过代理, 对系统资源的操作必须通过操作系统(kernel mode)的系统调用.</p>
+<p>问: 系统调用是如何实现的?</p>
+<p>答: 通过软中断.</p>
+<p>问: 什么是中断?</p>
+<p>答: 操作系统事件.</p>
+<p>问: 操作系统如何重新获得控制权?</p>
+<p>答: 乐观: 等待进程放弃执行  悲观: 定时强制切换到操作系统控制</p>
+<p>问: 进程是如何切换的? </p>
+<p>答: 进程的组成是有两部分: 静态的代码和数据 + 动态的运行状态(内存 + 寄存器), 只要能保存并恢复运行状态, 那么进程就可以切换.</p>
+<p>问: 进程的调度算法有哪些?</p>
+<p>答: 最简单的调度算法是FIFO, 使用队列进行调度.</p>
+<p>问: FIFO调度算法有什么缺点, 造成这个缺点的原因是什么?</p>
+<p>答: 如果队列中有一个任务运行时间过长, 那么会导致这个任务的之后的所有任务得不到运行(饥饿).</p>
+<p>造成这个问题的主要原因是: 长任务的优先级过高.</p>
+<p>问: 如何解决短任务的饥饿问题?</p>
+<p>答: 使用优先队列, 短任务优先.</p>
+<p>问: 短任务优先有什么缺点?</p>
+<p>答: 所有的任务必须提前规划好才可以(预测能力), 但这个是不现实的.</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/90178355.jpg" alt=""></p>
+<p>问: 上述两个基于队列的算法不合适的本质原因是什么?</p>
+<ol>
+<li>队列的基本元素是以任务为单位的, 一个任务一旦开始执行就无法再次调度.</li>
+<li>调度器是静态的, 只能预先把任务规划好.</li>
+</ol>
+<p>问: 还有什么调度算法?</p>
+<p>答: RR, 循环队列, 队列中的每一个任务都运行一定的时间片, 然后切换. 这个算法的优点是:</p>
+<ol>
+<li>动态, 新的任务入队马上就可以得到时间片.</li>
+<li>把时间片作为可调度的资源, 而不是按照任务分配</li>
+</ol>
+<p>问: RR有什么缺点?</p>
+<p>答: 对于单个任务来说, 完成的时间变长了. 因为时间片要轮转.</p>
+<p>问: 还有什么调度算法?</p>
+<p>答: 多级反馈队列调度算法, 这个算法有多个队列, 每个队列有不同的优先级, 当任务开始进入调度器时, 优先级最高, 当任务在时间片内还没有执行完毕, 那么就移动到下一个优先级队列(后台任务); 如果任务在当前时间片内主动放弃CPU, 那么保持在当前队列(和用户交互的任务).</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/99088326.jpg" alt=""></p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-5/73807220.jpg" alt=""></p>
+<p>问: 多级反馈队列调度算法有什么缺点?</p>
+<p>答: 当用户主动放弃CPU时, 任务的优先级保持不变. 用户可以编写恶意程序主动放弃CPU确保他的程序一直在最高优先级. 而且只要最高优先级有任务, 那么低优先级队列就无法得到时间片, 所以需要操作系统隔一段时间之后把所有的任务都提升到最高优先级队列.</p>
+
+          
+        
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/04/OS简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/04/OS简介/" itemprop="url">OS简介</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-04T23:32:17+08:00">
+                2018-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-程序是怎么跑起来的"><a href="#1-程序是怎么跑起来的" class="headerlink" title="1. 程序是怎么跑起来的?"></a>1. 程序是怎么跑起来的?</h1><p>程序执行的过程非常简单: CPU从内存中获取当前应该执行的指令 -&gt; 解码 -&gt; 运行. 伪代码表示如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    ins = getNextInstruction()</span><br><span class="line">    decoded_ins = decode_ins(ins)</span><br><span class="line">    exec_ins(decoded_ins)</span><br></pre></td></tr></table></figure>
+<p>程序要运行是需要硬件资源的, 但是我们在编写代码时不会在每一个程序中都实现一套自己的文件系统, 我们也没有在创建文件的时候区分是固态硬盘还是机械硬盘, 而这一切的便利都是操作系统提供给我们的.</p>
+<p>操作系统封装了硬件资源, 然后给我们提供了易用的接口. </p>
+<p>其次, 操作系统把硬件资源合理的分配给每个程序, 这时, 操作系统就作为了硬件资源你的管理者.</p>
+<h1 id="2-什么是虚拟化-为什么我们需要虚拟化"><a href="#2-什么是虚拟化-为什么我们需要虚拟化" class="headerlink" title="2. 什么是虚拟化, 为什么我们需要虚拟化?"></a>2. 什么是虚拟化, 为什么我们需要虚拟化?</h1><p>首先虚拟化是假的, 不真实的. 我们需要虚拟化因为真实的硬件是无法满足我们需求.</p>
+<p>那么, 我们的需求是什么呢? 多进程并发执行.</p>
+<p>还是最开始的程序执行代码, 当我们只有一个程序在一个CPU中在运行时, 这个代码没问题, 但是如果我们两个或者三个程序都需要同时运行呢?</p>
+<p>这个需求是无法实现的, 因为一个CPU在具体的某一个时刻只可能在执行一个程序的一条指令. </p>
+<p>我们的需求现在就转变为如何把一个物理CPU变为多个CPU. 这个神奇的过程就是虚拟化. </p>
+<p>总结来说: 虚拟化就是通过一定的技术手段, 把硬件改造为满足我们需求的形式.</p>
+<p>把单个物理CPU改造为多个CPU的过程被称为虚拟化CPU.<br>把单个物理内存空间改造为多个内存空间的过程被称为虚拟化内存.</p>
+<h1 id="3-持久化储存"><a href="#3-持久化储存" class="headerlink" title="3. 持久化储存"></a>3. 持久化储存</h1><p>持久化储存主要是IO设备中的硬盘, 用于储存程序运行的结果. 对于程序员来说, 操作系统给我们提供的是文件系统作为持久化储存的抽象. 文件系统一般情况下全局共享的, 不同的程序之间可以通过文件系统来共享数据. </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -562,10 +1080,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -771,10 +1285,6 @@
   
 
   
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
