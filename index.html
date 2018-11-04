@@ -229,6 +229,553 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/11/03/JVM之类文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/11/03/JVM之类文件/" itemprop="url">JVM之类文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-03T22:32:01+08:00">
+                2018-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h2 id="无符号数"><a href="#无符号数" class="headerlink" title="无符号数"></a>无符号数</h2><h3 id="魔数"><a href="#魔数" class="headerlink" title="魔数"></a>魔数</h3><p>用于表示Java的类文件, 在类文件的前四个字节</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cafe babe</span><br></pre></td></tr></table></figure>
+<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>魔数之后的后四个字节</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000 0034 表示的的是JDK1.8</span><br></pre></td></tr></table></figure>
+<h3 id="常量池大小"><a href="#常量池大小" class="headerlink" title="常量池大小"></a>常量池大小</h3><p>版本号之后的两个字节</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0036 表示有53个常量</span><br></pre></td></tr></table></figure>
+<h3 id="常量池-大小依赖于源代码"><a href="#常量池-大小依赖于源代码" class="headerlink" title="常量池(大小依赖于源代码)"></a>常量池(大小依赖于源代码)</h3><ol>
+<li>源代码中的常量, 如字符串</li>
+<li>类和接口的全限定名</li>
+<li>字段名称和描述符</li>
+<li>方法名称和描述符</li>
+</ol>
+<p>类, 字段, 方法都是由字符串变量组合而成的.</p>
+<p>比如说我们有以下常量池, 反编译<code>HelloWorld.class</code> 得到的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Constant pool:</span><br><span class="line"> #1 = Methodref          #7.#24         // java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line"> #2 = Fieldref           #25.#26        // java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line"> #3 = String             #27            // hello world</span><br><span class="line"> #4 = Methodref          #28.#29        // java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line"> #5 = Fieldref           #6.#30         // cn/lihongjie/HelloWorld.i:I</span><br><span class="line"> #6 = Class              #31            // cn/lihongjie/HelloWorld</span><br><span class="line"> #7 = Class              #32            // java/lang/Object</span><br><span class="line"> #8 = Utf8               i</span><br><span class="line"> #9 = Utf8               I</span><br><span class="line">#10 = Utf8               &lt;init&gt;</span><br><span class="line">#11 = Utf8               ()V</span><br><span class="line">#12 = Utf8               Code</span><br><span class="line">#13 = Utf8               LineNumberTable</span><br><span class="line">#14 = Utf8               LocalVariableTable</span><br><span class="line">#15 = Utf8               this</span><br><span class="line">#16 = Utf8               Lcn/lihongjie/HelloWorld;</span><br><span class="line">#17 = Utf8               main</span><br><span class="line">#18 = Utf8               ([Ljava/lang/String;)V</span><br><span class="line">#19 = Utf8               args</span><br><span class="line">#20 = Utf8               [Ljava/lang/String;</span><br><span class="line">#21 = Utf8               &lt;clinit&gt;</span><br><span class="line">#22 = Utf8               SourceFile</span><br><span class="line">#23 = Utf8               HelloWorld.java</span><br><span class="line">#24 = NameAndType        #10:#11        // &quot;&lt;init&gt;&quot;:()V</span><br><span class="line">#25 = Class              #33            // java/lang/System</span><br><span class="line">#26 = NameAndType        #34:#35        // out:Ljava/io/PrintStream;</span><br><span class="line">#27 = Utf8               hello world</span><br><span class="line">#28 = Class              #36            // java/io/PrintStream</span><br><span class="line">#29 = NameAndType        #37:#38        // println:(Ljava/lang/String;)V</span><br><span class="line">#30 = NameAndType        #8:#9          // i:I</span><br><span class="line">#31 = Utf8               cn/lihongjie/HelloWorld</span><br><span class="line">#32 = Utf8               java/lang/Object</span><br><span class="line">#33 = Utf8               java/lang/System</span><br><span class="line">#34 = Utf8               out</span><br><span class="line">#35 = Utf8               Ljava/io/PrintStream;</span><br><span class="line">#36 = Utf8               java/io/PrintStream</span><br><span class="line">#37 = Utf8               println</span><br><span class="line">#38 = Utf8               (Ljava/lang/String;)V</span><br></pre></td></tr></table></figure>
+<p>我们拿其中的<code>println</code>进行说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"hello world"</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-11-4/70851148.jpg" alt=""></p>
+<h3 id="类文件访问权限"><a href="#类文件访问权限" class="headerlink" title="类文件访问权限"></a>类文件访问权限</h3><ol>
+<li><p>类文件的类型(ACC_${TYPE}  这个在源码反编译的时候一眼就可以看出来)</p>
+<ol>
+<li>接口</li>
+<li>抽象类</li>
+<li>注解</li>
+<li>枚举</li>
+</ol>
+</li>
+<li><p>类文件的访问权限</p>
+<ol>
+<li>public</li>
+<li>final</li>
+</ol>
+</li>
+</ol>
+<h3 id="继承关系"><a href="#继承关系" class="headerlink" title="继承关系"></a>继承关系</h3><ol>
+<li>this_class 当前类</li>
+<li>super_class 父类</li>
+<li>interface 实现的接口</li>
+</ol>
+<h3 id="字段集合"><a href="#字段集合" class="headerlink" title="字段集合"></a>字段集合</h3><ol>
+<li>标志位(权限位)<ol>
+<li>public</li>
+<li>static</li>
+<li>private</li>
+<li>…..</li>
+</ol>
+</li>
+<li>字段信息<ol>
+<li>字段名</li>
+<li>字段类型</li>
+</ol>
+</li>
+</ol>
+<h3 id="方法集合"><a href="#方法集合" class="headerlink" title="方法集合"></a>方法集合</h3><ol>
+<li>标志位</li>
+<li>名称</li>
+<li>描述符</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>类文件中的, 所有的信息都存储在常量池中, 而JVM指令只需要以常量池中的数据作为参数运行就可以了,</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/11/02/JVM之VisualVM连接远程服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/11/02/JVM之VisualVM连接远程服务器/" itemprop="url">JVM之VisualVM连接远程服务器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-02T14:42:14+08:00">
+                2018-11-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="如何连接到远程服务器"><a href="#如何连接到远程服务器" class="headerlink" title="如何连接到远程服务器"></a>如何连接到远程服务器</h1><h1 id="常用的方法-不推荐"><a href="#常用的方法-不推荐" class="headerlink" title="常用的方法(不推荐)"></a>常用的方法(不推荐)</h1><h2 id="JStatD"><a href="#JStatD" class="headerlink" title="JStatD"></a>JStatD</h2><blockquote>
+<p>jstatd is a daemon that is distributed with JDK. You start it from the command line (it’s likely necessary to run it as the user running the target JVM or as root) on the target machine and VisualVM will contact it to fetch information about the remote JVMs.</p>
+<ul>
+<li>Advantages: Can connect to a running JVM, no need to start it with special parameters</li>
+<li>Disadvantages: Much more limited monitoring capabilities (f.ex. no CPU usage monitoring, not possible to run the Sampler and/or take thread dumps).</li>
+</ul>
+</blockquote>
+<p>我们可以在JDK自带的工具里面找到<code>JStatD</code>, 然后使用<code>VisualVM</code>连接<code>JstatD</code>. </p>
+<p>优点:</p>
+<ol>
+<li>JVM不必重启, 可以直接监控运行中的JVM</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>由于没有侵入运行中的JVM, 所以可用的功能有限</li>
+<li>需要服务器开放端口给<code>JstatD</code> 使用.</li>
+</ol>
+<h2 id="JMX"><a href="#JMX" class="headerlink" title="JMX"></a>JMX</h2><p>JVM的远程管理接口</p>
+<p>优点:</p>
+<ol>
+<li>可以使用<code>VisualVM</code>的全部功能</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li><p>需要重启JVM, 使用以下参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yourJavaCommand... </span><br><span class="line">-Dcom.sun.management.jmxremote </span><br><span class="line">-Dcom.sun.management.jmxremote.ssl=false </span><br><span class="line">-Dcom.sun.management.jmxremote.authenticate=false </span><br><span class="line">-Dcom.sun.management.jmxremote.port=1098</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需要服务器开放<code>com.sun.management.jmxremote.port</code> 端口</p>
+</li>
+</ol>
+<p>上述两种方法的共通特点就是需要开放服务器端口和重启JVM, 对于开发人员来说, 这两个都是比较困难的, 下面介绍的方法可以完全避开这两个动作.</p>
+<h1 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h1><ol>
+<li>你可以SSH到你需要监控的服务器中</li>
+<li>你有相应的权限去安装一些软件和重启SSH服务</li>
+<li>你需要有一款Windows的X Server 软件</li>
+</ol>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="SSH隧道"><a href="#SSH隧道" class="headerlink" title="SSH隧道"></a>SSH隧道</h2><p>当你和服务器建立SSH连接时, 你就可以借助这个SSH连接转发任意的TCP流量. 关于SSH隧道的原理可以参考这篇文章: </p>
+<p><a href="https://www.ssh.com/ssh/tunneling/" target="_blank" rel="noopener">SSH TUNNEL</a></p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-11-2/75189828.jpg" alt=""></p>
+<p>建立SSH隧道之后, 流量可以进行两个方向的流动:</p>
+<ol>
+<li><p>SSH Client -&gt; SSH Server</p>
+<p>比如说: 你有一台WEB服务器, 上面有一个MYSQL实例在运行, 服务器开放了80端口对外进行服务, 现在你需要连接到MYSQL中去进行一些操作. 正常情况下这是不可能的, 因为服务器没有对外开放3306端口, 但是如果你可以SSH到这台服务器, 那么你就可以把你的MYSQL数据包借助SSH隧道发送到服务器. 常用的MYSQL客户端Navicat就提供这个功能.</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-11-2/11888416.jpg" alt=""></p>
+</li>
+<li><p>SSH Server -&gt; SSH Client</p>
+<p>这个就是我们今天的主角, 借助SSH隧道, 我们可以把服务器的流量转发的客户端. 要讲这个我们首先需要了解Linux的GUI的工作原理.</p>
+</li>
+</ol>
+<h2 id="X-Window-System"><a href="#X-Window-System" class="headerlink" title="X Window System"></a>X Window System</h2><p>X 常用于Linux的GUI, 而VisualVM就是一个GUI程序, 要在远程服务器启动VisualVM, 我们必须了解X的运行原理.</p>
+<p>首先X是一个CS架构的程序, 由服务器和客户端组成.</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-11-2/70863260.jpg" alt=""></p>
+<p>用户输入事件由操作系统传递给X Server, 而GUI程序从X Server中获取这些事件,并把UI变化传递给X Server, 最后X Server把这些UI展示给用户.</p>
+<p>需要注意的有两点:</p>
+<ol>
+<li>X Server 负责渲染UI, 也就是说如果XServer在我们本地服务器, 那么我们就可以在本地服务器中显示UI</li>
+<li>X Client 负责响应事件, 并发送请求给X Server 进行UI更新</li>
+</ol>
+<p>有上面的两个技术, 那么我们就可以在本地运行远程服务器中的UI程序, 比如说VisualVM, 整体的架构如下:</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-11-2/60369001.jpg" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="服务器开启-X-Client流量转发"><a href="#服务器开启-X-Client流量转发" class="headerlink" title="服务器开启 X Client流量转发"></a>服务器开启 X Client流量转发</h2><ol>
+<li><p>编辑<code>/etc/ssh/sshd_config</code>, 修改配置项为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##启用X11 Forwarding</span><br><span class="line">X11Forwarding yes</span><br></pre></td></tr></table></figure>
+<p>修改之后重启sshd服务</p>
+<p>CentOS6  <code>service sshd restart</code></p>
+<p>CentOS7 <code>systemctl restart sshd</code></p>
+<p>重启之后可以看到sshd会监听本地的6010端口, 也就是X Server的端口, 当这个端口收到流量时会转发给SSH的客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_45_207_centos ~]# netstat -anltp | grep ssh</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      22375/sshd          </span><br><span class="line">tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      22487/sshd: root@pt </span><br><span class="line">tcp        0     52 10.104.45.207:22        140.240.17.92:35490     ESTABLISHED 22487/sshd: root@pt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="服务器安装-X-Client-依赖"><a href="#服务器安装-X-Client-依赖" class="headerlink" title="服务器安装 X Client 依赖"></a>服务器安装 X Client 依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install xorg-x11-apps # 这个包有我们需要的依赖</span><br><span class="line"></span><br><span class="line">	Dep-Install libXaw-1.0.13-4.el7.x86_64     @os</span><br><span class="line">    Dep-Install libXmu-1.1.2-2.el7.x86_64      @os</span><br><span class="line">    Dep-Install libXt-1.1.5-3.el7.x86_64       @os</span><br><span class="line">    Dep-Install libxkbfile-1.0.9-3.el7.x86_64  @os</span><br><span class="line">    Install     xorg-x11-apps-7.7-7.el7.x86_64 @os</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install xorg-x11-xauth # x client 和 server 的会话管理</span><br></pre></td></tr></table></figure>
+<h2 id="客户端启动-X-Server服务器"><a href="#客户端启动-X-Server服务器" class="headerlink" title="客户端启动 X Server服务器"></a>客户端启动 X Server服务器</h2><p>X Server我使用的是X Manager 自带的.</p>
+<h2 id="客户端转发-X-Client-流量到-X-Server服务器"><a href="#客户端转发-X-Client-流量到-X-Server服务器" class="headerlink" title="客户端转发 X Client 流量到 X Server服务器"></a>客户端转发 X Client 流量到 X Server服务器</h2><p><img src="D:\blog\source\_posts\assets\1541172879942.png" alt="1541172879942"></p>
+<h2 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h2><p>进行上述操作之后, 理论上你就可以在本地环境中运行远程服务器的X Client 程序了, 下面是测试环节</p>
+<h3 id="Cookie-测试"><a href="#Cookie-测试" class="headerlink" title="Cookie 测试"></a>Cookie 测试</h3><p>如果你成功的建立的X11 转发隧道, 那么登录服务器之后可以在服务器端查看到当前的会话Cookie</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_45_207_centos ~]# xauth list</span><br><span class="line">VM_45_207_centos/unix:10  MIT-MAGIC-COOKIE-1  895715dfbd457651d243e3744d3cf52b</span><br><span class="line">VM_45_207_centos/unix:11  MIT-MAGIC-COOKIE-1  892a667a2b427e12de87a75449ca73d8</span><br></pre></td></tr></table></figure>
+<h3 id="X-app-测试"><a href="#X-app-测试" class="headerlink" title="X app 测试"></a>X app 测试</h3><p>可以使用X 自带的一些小程序来检测隧道是否建立, 比如说: <code>xclock</code></p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-11-2/28797689.jpg" alt=""></p>
+<p>进行上述操作之后, 理论上来说你可以在本机中运行服务器的任何GUI程序, 包括Firefox, VisualVM.</p>
+<h1 id="关于VisualVM的一些坑"><a href="#关于VisualVM的一些坑" class="headerlink" title="关于VisualVM的一些坑"></a>关于VisualVM的一些坑</h1><h2 id="运行没有响应"><a href="#运行没有响应" class="headerlink" title="运行没有响应"></a>运行没有响应</h2><p>运行VisualVM之后命令自动退出, 没有报错, 也没有日志. 遇到这种情况首先应该把日志打开, 然后根据日志的报错信息去排查. 命令如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./jvisualvm -J-Dnetbeans.logger.console=true</span><br></pre></td></tr></table></figure>
+<h2 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h2><p>这个就需要安装中文字体了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall &quot;fonts&quot;</span><br></pre></td></tr></table></figure>
+<p>当然这种安装方式可能会安装很多不必要的包, 你可以在网上找到只安装特定字体的教程, 这里就不再累述了.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/10/31/JVM之垃圾回收/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/10/31/JVM之垃圾回收/" itemprop="url">JVM之垃圾回收</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T20:02:12+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>垃圾回收需要解决的问题有三个:</p>
+<ol>
+<li>如何确定对象不再被引用</li>
+<li>确定垃圾对象之后什么时候进行清理</li>
+<li>采取什么清理策略</li>
+</ol>
+<h1 id="垃圾对象定位"><a href="#垃圾对象定位" class="headerlink" title="垃圾对象定位"></a>垃圾对象定位</h1><p>垃圾对象定位是垃圾回收的第一步, 只有在确定垃圾对象之后, 我们才能进行回收.</p>
+<h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><p>每一个对象都有一个标志位, 用于记录被引用的次数. 当次数为0时表示对象不再被使用, 那么就可以标记为垃圾对象.</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>简单</li>
+<li>快速</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>无法解决循环引用的问题</li>
+</ol>
+<h2 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h2><p>在对象组成的图中, 每一个对象必须和关键的节点(ROOT)是连通的, 这样才能认为对象是存活的.</p>
+<h1 id="垃圾清除算法"><a href="#垃圾清除算法" class="headerlink" title="垃圾清除算法"></a>垃圾清除算法</h1><p>垃圾清除算法就是把垃圾对象从内存中删除, 我们可以抽象的把垃圾清除的过程的认为是: 从一个数组中删除一部分元素.</p>
+<h2 id="直接删除法"><a href="#直接删除法" class="headerlink" title="直接删除法"></a>直接删除法</h2><p>把数组中的元素直接删除</p>
+<p>删除之前:</p>
+<p>[✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔]</p>
+<p>删除之后:</p>
+<p>[✔✔□□□✔✔□✔✔✔□□□✔✔✔]</p>
+<p>可以很明显的发现内存的碎片化, 所以这个算法是不可接收的</p>
+<h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>在复制算法中, 需要有两个相同大小的内存块, 需要删除元素时, 把需要保留的元素复制到另外一个内存中</p>
+<p>这个算法除了空间复杂度有点大之外没什么缺点.</p>
+<p>适用于存活对象少的情况, 这种情况下复制次数少</p>
+<h2 id="整理算法"><a href="#整理算法" class="headerlink" title="整理算法"></a>整理算法</h2><p>删除元素之后把内存整理一下, 就是我们常见的数组删除算法, 适用于存活对象多的情况.</p>
+<h2 id="STW"><a href="#STW" class="headerlink" title="STW"></a>STW</h2><p>当需要触发GC时, 所有的线程必须中断才能准确的进行垃圾检测. 所以JVM在需要进行GC的时候会设置一个标志位, 所有的线程都会轮询这个标志位, 当发现需要进行GC的时候, 由线程自己进行中断, 当所有的线程都中断时, 也就发生了STW事件(除了垃圾回收线程之外没有线程在运行了).</p>
+<h1 id="垃圾清除算法实现"><a href="#垃圾清除算法实现" class="headerlink" title="垃圾清除算法实现"></a>垃圾清除算法实现</h1><ol>
+<li>并发垃圾收集器: 可以和用户线程一起运行的垃圾收集器</li>
+<li>并行垃圾收集器: 可以使用多核的垃圾收集器</li>
+<li>单体垃圾收集器: 一次性完成垃圾收集工作</li>
+<li>渐进式垃圾收集器: 垃圾收集的过程分为多个步骤</li>
+<li>保守垃圾收集器: 无法完全收集全部垃圾</li>
+<li>准确垃圾收集: 可以完全收集垃圾</li>
+<li>安全点: 线程执行过程中可以确定所有的栈上对象引用, 可以保证垃圾回收器准确运行</li>
+</ol>
+<h2 id="垃圾清除算法的一般原则"><a href="#垃圾清除算法的一般原则" class="headerlink" title="垃圾清除算法的一般原则"></a>垃圾清除算法的一般原则</h2><ol>
+<li>年轻代通常使用单体(STW)的复制(对象存活几率小)垃圾回收算法.</li>
+<li>老年代通常使用标记清除压缩算法, 对象存活率高. 通常是渐进式的垃圾回收算法.<ol>
+<li>并发标记: 和用户线程一起工作(用户可能产生新的垃圾), 在第一遍工作结束之后, 可能需要再次检查一下</li>
+<li>渐进式压缩碎片: 把内存分为不同的区域, 找到被引用最少的区域, 然后压缩</li>
+</ol>
+</li>
+<li><strong>垃圾回收只能被延迟, 不能被取消</strong></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/10/31/JVM之内存分类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1327,433 +1874,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/11/设计模式-一/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/11/设计模式-一/" itemprop="url">设计模式(一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T19:47:04+08:00">
-                2018-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问: 什么是单一职责原则 ?</p>
-<blockquote>
-<p>答: do one thing and do it well.</p>
-</blockquote>
-<p>问: 单一职责原则是面向对象的原则吗?</p>
-<blockquote>
-<p>答: 不是, 单一职责原则的可以用于函数, 类, 类库甚至是一个完整的应用, 并不是面向对象特有的.</p>
-</blockquote>
-<p>问: 什么是职责?</p>
-<blockquote>
-<p>答: 只有一个理由去改变.</p>
-</blockquote>
-<p>问: 什么是里氏替换原则?</p>
-<blockquote>
-<p>答: 子类型不能打破父类型的契约(接口).</p>
-</blockquote>
-<p>问: 什么是开闭原则 ?</p>
-<blockquote>
-<p>答: 闭: 向后兼容. 开: 开发新功能. 总结一句话: 开发新功能不能破坏向后兼容性. 新版本和旧版本要可替换(接口稳定).</p>
-</blockquote>
-<p>问: 依赖倒置原则 ?</p>
-<blockquote>
-<p>答: 依赖于接口(不变)而不是具体实现(变化) –&gt; 单一职责原则</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/10/Java之内存模型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/10/Java之内存模型/" itemprop="url">Java之内存模型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T21:48:31+08:00">
-                2018-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问: 什么是Java内存模型?</p>
-<blockquote>
-<p>答: 由程序员自己控制一部分JVM代码优化的过程(只保证在单线程). JVM可以做到在指令级别内存读写优化并保证单线程情况下的语义不变.</p>
-</blockquote>
-<p>原子性: new</p>
-<p>可见性: </p>
-<p>顺序</p>
-<hr>
-<p>问: 如何控制JVM代码优化?</p>
-<blockquote>
-<p>答: </p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>反优化</th>
-<th>优点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>final</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>volatile</td>
-<td>直接读写主存, 而不使用CPU缓存</td>
-<td>只要volatile字段更新, 那么后续的线程读取确保是最新的值</td>
-</tr>
-<tr>
-<td>synchronized</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p>问: 非volatile字段与volatile字段有什么区别?</p>
-<blockquote>
-<p>答:</p>
-<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-11/41664555.jpg" alt="非volatile字段, 每个CPU都有缓存"><br><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-11/14701928.jpg" alt="volatile字段直接读写主存"></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/10/Java之多线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李宏杰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李宏杰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2018/08/10/Java之多线程/" itemprop="url">Java之多线程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T15:18:42+08:00">
-                2018-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问: 什么是线程安全 ?</p>
-<blockquote>
-<p>答: 一个类的行为在单线程和多线程的情况下表现完全一致, 那么它就是线程安全的</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1804,7 +1924,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1817,7 +1937,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

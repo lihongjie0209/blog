@@ -229,6 +229,433 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/11/设计模式-一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/11/设计模式-一/" itemprop="url">设计模式(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-11T19:47:04+08:00">
+                2018-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是单一职责原则 ?</p>
+<blockquote>
+<p>答: do one thing and do it well.</p>
+</blockquote>
+<p>问: 单一职责原则是面向对象的原则吗?</p>
+<blockquote>
+<p>答: 不是, 单一职责原则的可以用于函数, 类, 类库甚至是一个完整的应用, 并不是面向对象特有的.</p>
+</blockquote>
+<p>问: 什么是职责?</p>
+<blockquote>
+<p>答: 只有一个理由去改变.</p>
+</blockquote>
+<p>问: 什么是里氏替换原则?</p>
+<blockquote>
+<p>答: 子类型不能打破父类型的契约(接口).</p>
+</blockquote>
+<p>问: 什么是开闭原则 ?</p>
+<blockquote>
+<p>答: 闭: 向后兼容. 开: 开发新功能. 总结一句话: 开发新功能不能破坏向后兼容性. 新版本和旧版本要可替换(接口稳定).</p>
+</blockquote>
+<p>问: 依赖倒置原则 ?</p>
+<blockquote>
+<p>答: 依赖于接口(不变)而不是具体实现(变化) –&gt; 单一职责原则</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/10/Java之内存模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/10/Java之内存模型/" itemprop="url">Java之内存模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T21:48:31+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是Java内存模型?</p>
+<blockquote>
+<p>答: 由程序员自己控制一部分JVM代码优化的过程(只保证在单线程). JVM可以做到在指令级别内存读写优化并保证单线程情况下的语义不变.</p>
+</blockquote>
+<p>原子性: new</p>
+<p>可见性: </p>
+<p>顺序</p>
+<hr>
+<p>问: 如何控制JVM代码优化?</p>
+<blockquote>
+<p>答: </p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>反优化</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>final</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>volatile</td>
+<td>直接读写主存, 而不使用CPU缓存</td>
+<td>只要volatile字段更新, 那么后续的线程读取确保是最新的值</td>
+</tr>
+<tr>
+<td>synchronized</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>问: 非volatile字段与volatile字段有什么区别?</p>
+<blockquote>
+<p>答:</p>
+<p><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-11/41664555.jpg" alt="非volatile字段, 每个CPU都有缓存"><br><img src="http://liimg.oss-cn-shenzhen.aliyuncs.com/18-8-11/14701928.jpg" alt="volatile字段直接读写主存"></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/10/Java之多线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李宏杰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李宏杰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/08/10/Java之多线程/" itemprop="url">Java之多线程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T15:18:42+08:00">
+                2018-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问: 什么是线程安全 ?</p>
+<blockquote>
+<p>答: 一个类的行为在单线程和多线程的情况下表现完全一致, 那么它就是线程安全的</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/08/09/数据库之事务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1394,7 +1821,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1407,7 +1834,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

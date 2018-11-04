@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="jvm," />
+  <meta name="keywords" content="JVM,GC," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="栈是一个线程私有的内存区域, 每一个方法调用就会产生一个stack frame,  用于储存方法调用的各种信息  局部变量表 操作数 方法出口  如果一个线程中的stack 超过大小, 那么就会抛出java.lang.StackOverflowError 可以通过 -Xss 参数调整stack的大小. 下面的代码默认的大小只能调用6000次 123456789101112131415@Testpu">
-<meta name="keywords" content="jvm">
+<meta name="description" content="概述垃圾回收需要解决的问题有三个:  如何确定对象不再被引用 确定垃圾对象之后什么时候进行清理 采取什么清理策略  垃圾对象定位垃圾对象定位是垃圾回收的第一步, 只有在确定垃圾对象之后, 我们才能进行回收. 引用计数法每一个对象都有一个标志位, 用于记录被引用的次数. 当次数为0时表示对象不再被使用, 那么就可以标记为垃圾对象. 优点 简单 快速  缺点 无法解决循环引用的问题  可达性分析算法在">
+<meta name="keywords" content="JVM,GC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JVM之内存分类">
-<meta property="og:url" content="https://lihongjie0209.github.io/2018/10/31/JVM之内存分类/index.html">
+<meta property="og:title" content="JVM之垃圾回收">
+<meta property="og:url" content="https://lihongjie0209.github.io/2018/10/31/JVM之垃圾回收/index.html">
 <meta property="og:site_name" content="李宏杰的博客">
-<meta property="og:description" content="栈是一个线程私有的内存区域, 每一个方法调用就会产生一个stack frame,  用于储存方法调用的各种信息  局部变量表 操作数 方法出口  如果一个线程中的stack 超过大小, 那么就会抛出java.lang.StackOverflowError 可以通过 -Xss 参数调整stack的大小. 下面的代码默认的大小只能调用6000次 123456789101112131415@Testpu">
+<meta property="og:description" content="概述垃圾回收需要解决的问题有三个:  如何确定对象不再被引用 确定垃圾对象之后什么时候进行清理 采取什么清理策略  垃圾对象定位垃圾对象定位是垃圾回收的第一步, 只有在确定垃圾对象之后, 我们才能进行回收. 引用计数法每一个对象都有一个标志位, 用于记录被引用的次数. 当次数为0时表示对象不再被使用, 那么就可以标记为垃圾对象. 优点 简单 快速  缺点 无法解决循环引用的问题  可达性分析算法在">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-31T11:47:32.055Z">
+<meta property="og:updated_time" content="2018-11-04T04:59:59.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM之内存分类">
-<meta name="twitter:description" content="栈是一个线程私有的内存区域, 每一个方法调用就会产生一个stack frame,  用于储存方法调用的各种信息  局部变量表 操作数 方法出口  如果一个线程中的stack 超过大小, 那么就会抛出java.lang.StackOverflowError 可以通过 -Xss 参数调整stack的大小. 下面的代码默认的大小只能调用6000次 123456789101112131415@Testpu">
+<meta name="twitter:title" content="JVM之垃圾回收">
+<meta name="twitter:description" content="概述垃圾回收需要解决的问题有三个:  如何确定对象不再被引用 确定垃圾对象之后什么时候进行清理 采取什么清理策略  垃圾对象定位垃圾对象定位是垃圾回收的第一步, 只有在确定垃圾对象之后, 我们才能进行回收. 引用计数法每一个对象都有一个标志位, 用于记录被引用的次数. 当次数为0时表示对象不再被使用, 那么就可以标记为垃圾对象. 优点 简单 快速  缺点 无法解决循环引用的问题  可达性分析算法在">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://lihongjie0209.github.io/2018/10/31/JVM之内存分类/"/>
+  <link rel="canonical" href="https://lihongjie0209.github.io/2018/10/31/JVM之垃圾回收/"/>
 
 
 
 
 
-  <title>JVM之内存分类 | 李宏杰的博客</title>
+  <title>JVM之垃圾回收 | 李宏杰的博客</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/10/31/JVM之内存分类/">
+    <link itemprop="mainEntityOfPage" href="https://lihongjie0209.github.io/blog/2018/10/31/JVM之垃圾回收/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李宏杰">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JVM之内存分类</h1>
+          <h1 class="post-title" itemprop="name headline">JVM之垃圾回收</h1>
         
 
         <div class="post-meta">
@@ -262,7 +262,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T10:14:06+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T20:02:12+08:00">
                 2018-10-31
               </time>
             
@@ -300,24 +300,51 @@
       
 
       
-        <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>是一个线程私有的内存区域, 每一个方法调用就会产生一个<code>stack frame</code>,  用于储存方法调用的各种信息</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>垃圾回收需要解决的问题有三个:</p>
 <ol>
-<li>局部变量表</li>
-<li>操作数</li>
-<li>方法出口</li>
+<li>如何确定对象不再被引用</li>
+<li>确定垃圾对象之后什么时候进行清理</li>
+<li>采取什么清理策略</li>
 </ol>
-<p>如果一个线程中的<code>stack</code> 超过大小, 那么就会抛出<code>java.lang.StackOverflowError</code></p>
-<p>可以通过 <code>-Xss</code> 参数调整<code>stack</code>的大小.</p>
-<p>下面的代码默认的大小只能调用6000次</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testStackOverflow</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> stackCounter = <span class="number">0</span>;</span><br><span class="line">	empty(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">empty</span><span class="params">(<span class="keyword">int</span> counter)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"current stack counter is "</span> + String.valueOf(counter));</span><br><span class="line">	empty(counter + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p>堆是JVM中存储对象的内存, 所有线程共享, 是垃圾回收主要进行的区域. 在栈中创建的对象都会存储在堆中, 栈中只存储引用.</p>
-<p>当堆中的内存空间耗尽时, 会抛出<code>java.lang.OutOfMemoryError</code></p>
-<p>下面这段代码会导致OOM, 把堆大小调整的小一点可以快速的看到效果 <code>-Xmx10M -Xms10M</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOOM</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">	LinkedList&lt;Object&gt; objects = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line"></span><br><span class="line">		objects.add(<span class="keyword">new</span> Object());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><p>在操作系统中, 这个区域被称为 <code>code</code> 也就是存储我们源代码的区域, 所有线程共享. 这个区域如果太小, 可能会导致以下问题:</p>
-<ol>
-<li>系统启动时抛出OOM, 因为系统启动时会加载很多类, 所以如果系统的类太多, 在启动时直接OOM</li>
-<li>在系统运行时, 如果生成的动态代理类太多, 也会导致OOM</li>
+<h1 id="垃圾对象定位"><a href="#垃圾对象定位" class="headerlink" title="垃圾对象定位"></a>垃圾对象定位</h1><p>垃圾对象定位是垃圾回收的第一步, 只有在确定垃圾对象之后, 我们才能进行回收.</p>
+<h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><p>每一个对象都有一个标志位, 用于记录被引用的次数. 当次数为0时表示对象不再被使用, 那么就可以标记为垃圾对象.</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>简单</li>
+<li>快速</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>无法解决循环引用的问题</li>
+</ol>
+<h2 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h2><p>在对象组成的图中, 每一个对象必须和关键的节点(ROOT)是连通的, 这样才能认为对象是存活的.</p>
+<h1 id="垃圾清除算法"><a href="#垃圾清除算法" class="headerlink" title="垃圾清除算法"></a>垃圾清除算法</h1><p>垃圾清除算法就是把垃圾对象从内存中删除, 我们可以抽象的把垃圾清除的过程的认为是: 从一个数组中删除一部分元素.</p>
+<h2 id="直接删除法"><a href="#直接删除法" class="headerlink" title="直接删除法"></a>直接删除法</h2><p>把数组中的元素直接删除</p>
+<p>删除之前:</p>
+<p>[✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔]</p>
+<p>删除之后:</p>
+<p>[✔✔□□□✔✔□✔✔✔□□□✔✔✔]</p>
+<p>可以很明显的发现内存的碎片化, 所以这个算法是不可接收的</p>
+<h2 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h2><p>在复制算法中, 需要有两个相同大小的内存块, 需要删除元素时, 把需要保留的元素复制到另外一个内存中</p>
+<p>这个算法除了空间复杂度有点大之外没什么缺点.</p>
+<p>适用于存活对象少的情况, 这种情况下复制次数少</p>
+<h2 id="整理算法"><a href="#整理算法" class="headerlink" title="整理算法"></a>整理算法</h2><p>删除元素之后把内存整理一下, 就是我们常见的数组删除算法, 适用于存活对象多的情况.</p>
+<h2 id="STW"><a href="#STW" class="headerlink" title="STW"></a>STW</h2><p>当需要触发GC时, 所有的线程必须中断才能准确的进行垃圾检测. 所以JVM在需要进行GC的时候会设置一个标志位, 所有的线程都会轮询这个标志位, 当发现需要进行GC的时候, 由线程自己进行中断, 当所有的线程都中断时, 也就发生了STW事件(除了垃圾回收线程之外没有线程在运行了).</p>
+<h1 id="垃圾清除算法实现"><a href="#垃圾清除算法实现" class="headerlink" title="垃圾清除算法实现"></a>垃圾清除算法实现</h1><ol>
+<li>并发垃圾收集器: 可以和用户线程一起运行的垃圾收集器</li>
+<li>并行垃圾收集器: 可以使用多核的垃圾收集器</li>
+<li>单体垃圾收集器: 一次性完成垃圾收集工作</li>
+<li>渐进式垃圾收集器: 垃圾收集的过程分为多个步骤</li>
+<li>保守垃圾收集器: 无法完全收集全部垃圾</li>
+<li>准确垃圾收集: 可以完全收集垃圾</li>
+<li>安全点: 线程执行过程中可以确定所有的栈上对象引用, 可以保证垃圾回收器准确运行</li>
+</ol>
+<h2 id="垃圾清除算法的一般原则"><a href="#垃圾清除算法的一般原则" class="headerlink" title="垃圾清除算法的一般原则"></a>垃圾清除算法的一般原则</h2><ol>
+<li>年轻代通常使用单体(STW)的复制(对象存活几率小)垃圾回收算法.</li>
+<li>老年代通常使用标记清除压缩算法, 对象存活率高. 通常是渐进式的垃圾回收算法.<ol>
+<li>并发标记: 和用户线程一起工作(用户可能产生新的垃圾), 在第一遍工作结束之后, 可能需要再次检查一下</li>
+<li>渐进式压缩碎片: 把内存分为不同的区域, 找到被引用最少的区域, 然后压缩</li>
+</ol>
+</li>
+<li><strong>垃圾回收只能被延迟, 不能被取消</strong></li>
 </ol>
 
       
@@ -336,7 +363,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/jvm/" rel="tag"># jvm</a>
+            <a href="/blog/tags/JVM/" rel="tag"># JVM</a>
+          
+            <a href="/blog/tags/GC/" rel="tag"># GC</a>
           
         </div>
       
@@ -349,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/08/21/AVL树/" rel="next" title="AVL树">
-                <i class="fa fa-chevron-left"></i> AVL树
+              <a href="/blog/2018/10/31/JVM之内存分类/" rel="next" title="JVM之内存分类">
+                <i class="fa fa-chevron-left"></i> JVM之内存分类
               </a>
             
           </div>
@@ -359,8 +388,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/10/31/JVM之垃圾回收/" rel="prev" title="JVM之垃圾回收">
-                JVM之垃圾回收 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2018/11/02/JVM之VisualVM连接远程服务器/" rel="prev" title="JVM之VisualVM连接远程服务器">
+                JVM之VisualVM连接远程服务器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#栈"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆"><span class="nav-number">2.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法区"><span class="nav-number">3.</span> <span class="nav-text">方法区</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾对象定位"><span class="nav-number">2.</span> <span class="nav-text">垃圾对象定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用计数法"><span class="nav-number">2.1.</span> <span class="nav-text">引用计数法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可达性分析算法"><span class="nav-number">2.2.</span> <span class="nav-text">可达性分析算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾清除算法"><span class="nav-number">3.</span> <span class="nav-text">垃圾清除算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接删除法"><span class="nav-number">3.1.</span> <span class="nav-text">直接删除法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制算法"><span class="nav-number">3.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整理算法"><span class="nav-number">3.3.</span> <span class="nav-text">整理算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STW"><span class="nav-number">3.4.</span> <span class="nav-text">STW</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾清除算法实现"><span class="nav-number">4.</span> <span class="nav-text">垃圾清除算法实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾清除算法的一般原则"><span class="nav-number">4.1.</span> <span class="nav-text">垃圾清除算法的一般原则</span></a></li></ol></li></ol></div>
             
 
           </div>
